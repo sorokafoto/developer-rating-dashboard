@@ -1,0 +1,10 @@
+{
+  "name": "developer-rating-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Внутренний sales-enablement дашборд по расширенной аналитике рейтинга застройщиков.",
+  "scripts": {
+    "serve": "node build/serve.mjs"
+  }
+}
