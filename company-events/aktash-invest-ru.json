@@ -1,0 +1,176 @@
+{
+  "developer_name": "Ак Таш-Инвестстрой",
+  "url": "https://aktash-invest.ru/",
+  "quarter_id": "2026-Q2",
+  "applications": [
+    {
+      "application_id": "APP-3-013",
+      "submitted_at": "2026-06-02T09:40:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "tuesday",
+      "got_identified_call": false,
+      "phone_number": "+7 (903) 791-55-87"
+    },
+    {
+      "application_id": "APP-3-046",
+      "submitted_at": "2026-06-02T13:23:59.999Z",
+      "time_slot": "afternoon",
+      "day_of_week": "tuesday",
+      "got_identified_call": false,
+      "phone_number": "+7 (905) 513-31-09"
+    },
+    {
+      "application_id": "APP-3-079",
+      "submitted_at": "2026-06-02T19:16:59.999Z",
+      "time_slot": "evening",
+      "day_of_week": "tuesday",
+      "got_identified_call": false,
+      "phone_number": "+7 (901) 507-47-17"
+    },
+    {
+      "application_id": "APP-3-112",
+      "submitted_at": "2026-06-03T09:14:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "tuesday",
+      "got_identified_call": false,
+      "phone_number": "+7 (930) 925-06-25"
+    },
+    {
+      "application_id": "APP-3-145",
+      "submitted_at": "2026-06-03T13:22:00.000Z",
+      "time_slot": "afternoon",
+      "day_of_week": "tuesday",
+      "got_identified_call": false,
+      "phone_number": "+7 (930) 954-93-00"
+    },
+    {
+      "application_id": "APP-3-178",
+      "submitted_at": "2026-06-03T19:19:00.000Z",
+      "time_slot": "evening",
+      "day_of_week": "tuesday",
+      "got_identified_call": false,
+      "phone_number": "+7 (930) 964-06-44"
+    },
+    {
+      "application_id": "APP-3-211",
+      "submitted_at": "2026-06-04T09:24:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "thursday",
+      "got_identified_call": false,
+      "phone_number": "+7 (901) 347-53-59"
+    },
+    {
+      "application_id": "APP-3-244",
+      "submitted_at": "2026-06-04T13:19:59.999Z",
+      "time_slot": "afternoon",
+      "day_of_week": "thursday",
+      "got_identified_call": false,
+      "phone_number": "+7 (991) 134-10-86"
+    },
+    {
+      "application_id": "APP-3-277",
+      "submitted_at": "2026-06-04T19:30:00.000Z",
+      "time_slot": "evening",
+      "day_of_week": "thursday",
+      "got_identified_call": false,
+      "phone_number": "+7 (991) 238-50-38"
+    },
+    {
+      "application_id": "APP-3-310",
+      "submitted_at": "2026-06-05T09:31:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "friday",
+      "got_identified_call": false,
+      "phone_number": "+7 (903) 586-90-43"
+    },
+    {
+      "application_id": "APP-3-343",
+      "submitted_at": "2026-06-05T13:27:00.000Z",
+      "time_slot": "afternoon",
+      "day_of_week": "friday",
+      "got_identified_call": false,
+      "phone_number": "+7 (903) 586-90-53"
+    },
+    {
+      "application_id": "APP-3-376",
+      "submitted_at": "2026-06-05T19:41:00.000Z",
+      "time_slot": "evening",
+      "day_of_week": "friday",
+      "got_identified_call": false,
+      "phone_number": "+7 (906) 708-49-29"
+    },
+    {
+      "application_id": "APP-3-409",
+      "submitted_at": "2026-06-06T09:34:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "saturday",
+      "got_identified_call": false,
+      "phone_number": "+7 (909) 955-34-30"
+    },
+    {
+      "application_id": "APP-3-442",
+      "submitted_at": "2026-06-06T14:26:00.000Z",
+      "time_slot": "afternoon",
+      "day_of_week": "saturday",
+      "got_identified_call": false,
+      "phone_number": "+7 (901) 335-66-79"
+    },
+    {
+      "application_id": "APP-3-475",
+      "submitted_at": "2026-06-06T19:34:59.999Z",
+      "time_slot": "evening",
+      "day_of_week": "saturday",
+      "got_identified_call": false,
+      "phone_number": "+7 (991) 181-01-99"
+    },
+    {
+      "application_id": "APP-3-508",
+      "submitted_at": "2026-06-07T10:44:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "sunday",
+      "got_identified_call": false,
+      "phone_number": "+7 (965) 127-47-13"
+    },
+    {
+      "application_id": "APP-3-541",
+      "submitted_at": "2026-06-07T13:47:59.999Z",
+      "time_slot": "afternoon",
+      "day_of_week": "sunday",
+      "got_identified_call": false,
+      "phone_number": "+7 (903) 964-17-42"
+    },
+    {
+      "application_id": "APP-3-574",
+      "submitted_at": "2026-06-07T19:16:59.999Z",
+      "time_slot": "evening",
+      "day_of_week": "sunday",
+      "got_identified_call": false,
+      "phone_number": "+7 (965) 127-09-80"
+    },
+    {
+      "application_id": "APP-3-607",
+      "submitted_at": "2026-06-08T09:14:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "monday",
+      "got_identified_call": false,
+      "phone_number": "+7 (903) 673-81-93"
+    },
+    {
+      "application_id": "APP-3-640",
+      "submitted_at": "2026-06-08T13:12:59.999Z",
+      "time_slot": "afternoon",
+      "day_of_week": "monday",
+      "got_identified_call": false,
+      "phone_number": "+7 (967) 016-79-41"
+    },
+    {
+      "application_id": "APP-3-673",
+      "submitted_at": "2026-06-08T19:16:00.000Z",
+      "time_slot": "evening",
+      "day_of_week": "monday",
+      "got_identified_call": false,
+      "phone_number": "+7 (903) 739-96-34"
+    }
+  ],
+  "events": []
+}

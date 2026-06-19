@@ -1,0 +1,88 @@
+{
+  "developer_name": "ТСИ",
+  "url": "https://ao-tsi.ru/",
+  "quarter_id": "2026-Q2",
+  "applications": [
+    {
+      "application_id": "APP-3-021",
+      "submitted_at": "2026-06-02T10:15:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "tuesday",
+      "got_identified_call": false,
+      "phone_number": "+7 (901) 335-66-79"
+    },
+    {
+      "application_id": "APP-3-054",
+      "submitted_at": "2026-06-02T13:31:59.999Z",
+      "time_slot": "afternoon",
+      "day_of_week": "tuesday",
+      "got_identified_call": false,
+      "phone_number": "+7 (903) 586-90-43"
+    },
+    {
+      "application_id": "APP-3-087",
+      "submitted_at": "2026-06-02T19:25:00.000Z",
+      "time_slot": "evening",
+      "day_of_week": "tuesday",
+      "got_identified_call": false,
+      "phone_number": "+7 (903) 586-90-53"
+    },
+    {
+      "application_id": "APP-3-120",
+      "submitted_at": "2026-06-03T09:37:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "tuesday",
+      "got_identified_call": false,
+      "phone_number": "+7 (906) 708-49-29"
+    },
+    {
+      "application_id": "APP-3-153",
+      "submitted_at": "2026-06-03T13:31:00.000Z",
+      "time_slot": "afternoon",
+      "day_of_week": "tuesday",
+      "got_identified_call": false,
+      "phone_number": "+7 (909) 955-34-30"
+    },
+    {
+      "application_id": "APP-3-186",
+      "submitted_at": "2026-06-03T19:29:00.000Z",
+      "time_slot": "evening",
+      "day_of_week": "tuesday",
+      "got_identified_call": false,
+      "phone_number": "+7 (901) 335-66-79"
+    },
+    {
+      "application_id": "APP-3-219",
+      "submitted_at": "2026-06-04T09:38:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "thursday",
+      "got_identified_call": false,
+      "phone_number": "+7 (991) 181-01-99"
+    },
+    {
+      "application_id": "APP-3-252",
+      "submitted_at": "2026-06-04T13:27:00.000Z",
+      "time_slot": "afternoon",
+      "day_of_week": "thursday",
+      "got_identified_call": false,
+      "phone_number": "+7 (965) 127-47-13"
+    },
+    {
+      "application_id": "APP-3-516",
+      "submitted_at": "2026-06-07T10:57:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "sunday",
+      "got_identified_call": false,
+      "phone_number": "+7 (901) 507-47-17"
+    },
+    {
+      "application_id": "APP-3-615",
+      "submitted_at": "2026-06-08T09:20:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "monday",
+      "got_identified_call": false,
+      "phone_number": "+7 (930) 964-06-44"
+    }
+  ],
+  "events": []
+}

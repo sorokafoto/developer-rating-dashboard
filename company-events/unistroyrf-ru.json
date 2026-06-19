@@ -1,0 +1,1211 @@
+{
+  "developer_name": "Унистрой",
+  "url": "https://unistroyrf.ru",
+  "quarter_id": "2026-Q2",
+  "applications": [
+    {
+      "application_id": "APP-1-029",
+      "submitted_at": "2026-06-02T10:27:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "tuesday",
+      "got_identified_call": true,
+      "phone_number": "+7 (903) 586-90-43"
+    },
+    {
+      "application_id": "APP-1-063",
+      "submitted_at": "2026-06-02T13:47:59.999Z",
+      "time_slot": "afternoon",
+      "day_of_week": "tuesday",
+      "got_identified_call": true,
+      "phone_number": "+7 (903) 739-96-34"
+    },
+    {
+      "application_id": "APP-1-097",
+      "submitted_at": "2026-06-02T22:47:59.999Z",
+      "time_slot": "evening",
+      "day_of_week": "tuesday",
+      "got_identified_call": true,
+      "phone_number": "+7 (906) 708-49-29"
+    },
+    {
+      "application_id": "APP-1-131",
+      "submitted_at": "2026-06-03T10:18:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "wednesday",
+      "got_identified_call": false,
+      "phone_number": "+7 (909) 955-34-30"
+    },
+    {
+      "application_id": "APP-1-165",
+      "submitted_at": "2026-06-03T13:16:59.999Z",
+      "time_slot": "afternoon",
+      "day_of_week": "wednesday",
+      "got_identified_call": true,
+      "phone_number": "+7 (901) 335-66-79"
+    },
+    {
+      "application_id": "APP-1-199",
+      "submitted_at": "2026-06-03T19:46:00.000Z",
+      "time_slot": "evening",
+      "day_of_week": "wednesday",
+      "got_identified_call": true,
+      "phone_number": "+7 (991) 181-01-99"
+    },
+    {
+      "application_id": "APP-1-233",
+      "submitted_at": "2026-06-04T10:23:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "thursday",
+      "got_identified_call": true,
+      "phone_number": "+7 (965) 127-47-13"
+    },
+    {
+      "application_id": "APP-1-267",
+      "submitted_at": "2026-06-04T14:19:59.999Z",
+      "time_slot": "afternoon",
+      "day_of_week": "thursday",
+      "got_identified_call": true,
+      "phone_number": "+7 (903) 964-17-42"
+    },
+    {
+      "application_id": "APP-1-301",
+      "submitted_at": "2026-06-04T20:37:00.000Z",
+      "time_slot": "evening",
+      "day_of_week": "thursday",
+      "got_identified_call": true,
+      "phone_number": "+7 (965) 127-09-80"
+    },
+    {
+      "application_id": "APP-1-335",
+      "submitted_at": "2026-06-05T10:31:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "friday",
+      "got_identified_call": true,
+      "phone_number": "+7 (903) 673-81-93"
+    },
+    {
+      "application_id": "APP-1-369",
+      "submitted_at": "2026-06-05T13:43:00.000Z",
+      "time_slot": "afternoon",
+      "day_of_week": "friday",
+      "got_identified_call": false,
+      "phone_number": "+7 (967) 016-79-41"
+    },
+    {
+      "application_id": "APP-1-403",
+      "submitted_at": "2026-06-05T19:27:00.000Z",
+      "time_slot": "evening",
+      "day_of_week": "friday",
+      "got_identified_call": true,
+      "phone_number": "+7 (903) 586-90-53"
+    },
+    {
+      "application_id": "APP-1-437",
+      "submitted_at": "2026-06-06T11:56:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "saturday",
+      "got_identified_call": true,
+      "phone_number": "+7 (903) 791-55-87"
+    },
+    {
+      "application_id": "APP-1-471",
+      "submitted_at": "2026-06-06T19:23:59.999Z",
+      "time_slot": "afternoon",
+      "day_of_week": "saturday",
+      "got_identified_call": true,
+      "phone_number": "+7 (901) 507-47-17"
+    },
+    {
+      "application_id": "APP-1-505",
+      "submitted_at": "2026-06-06T23:10:00.000Z",
+      "time_slot": "evening",
+      "day_of_week": "saturday",
+      "got_identified_call": true,
+      "phone_number": "+7 (905) 513-31-09"
+    },
+    {
+      "application_id": "APP-1-539",
+      "submitted_at": "2026-06-07T11:32:59.999Z",
+      "time_slot": "morning",
+      "day_of_week": "sunday",
+      "got_identified_call": true,
+      "phone_number": "+7 (930) 925-06-25"
+    },
+    {
+      "application_id": "APP-1-573",
+      "submitted_at": "2026-06-07T16:47:00.000Z",
+      "time_slot": "afternoon",
+      "day_of_week": "sunday",
+      "got_identified_call": true,
+      "phone_number": "+7 (930) 954-93-00"
+    },
+    {
+      "application_id": "APP-1-607",
+      "submitted_at": "2026-06-07T00:46:59.999Z",
+      "time_slot": "evening",
+      "day_of_week": "sunday",
+      "got_identified_call": true,
+      "phone_number": "+7 (930) 964-06-44"
+    },
+    {
+      "application_id": "APP-1-641",
+      "submitted_at": "2026-06-08T11:14:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "monday",
+      "got_identified_call": true,
+      "phone_number": "+7 (901) 347-53-59"
+    },
+    {
+      "application_id": "APP-1-675",
+      "submitted_at": "2026-06-08T14:46:59.999Z",
+      "time_slot": "afternoon",
+      "day_of_week": "monday",
+      "got_identified_call": true,
+      "phone_number": "+7 (991) 134-10-86"
+    },
+    {
+      "application_id": "APP-1-709",
+      "submitted_at": "2026-06-08T23:08:00.000Z",
+      "time_slot": "evening",
+      "day_of_week": "monday",
+      "got_identified_call": false,
+      "phone_number": "+7 (991) 238-50-38"
+    }
+  ],
+  "events": [
+    {
+      "event_id": "E-M-0024",
+      "application_id": "APP-1-267",
+      "event_at": "2026-06-04T18:04:00.000Z",
+      "minutes_since_application": 224,
+      "channel": "max",
+      "from_phone": "+7 (901) 634-73-28",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-M-0032",
+      "application_id": "APP-1-199",
+      "event_at": "2026-06-04T18:01:59.999Z",
+      "minutes_since_application": 1336,
+      "channel": "max",
+      "from_phone": "—",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-M-0041",
+      "application_id": "APP-1-199",
+      "event_at": "2026-06-04T17:42:59.999Z",
+      "minutes_since_application": 1317,
+      "channel": "max",
+      "from_phone": "—",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-0414",
+      "application_id": "APP-1-097",
+      "event_at": "2026-06-03T11:04:00.000Z",
+      "minutes_since_application": 916,
+      "channel": "sms",
+      "from_phone": "unistroy",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "unistroy"
+    },
+    {
+      "event_id": "E-SC-0415",
+      "application_id": "APP-1-165",
+      "event_at": "2026-06-03T11:16:00.000Z",
+      "minutes_since_application": 59,
+      "channel": "sms",
+      "from_phone": "unistroy",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "unistroy"
+    },
+    {
+      "event_id": "E-SC-0416",
+      "application_id": "APP-1-199",
+      "event_at": "2026-06-04T08:25:00.000Z",
+      "minutes_since_application": 939,
+      "channel": "sms",
+      "from_phone": "unistroy",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "unistroy"
+    },
+    {
+      "event_id": "E-SC-0417",
+      "application_id": "APP-1-267",
+      "event_at": "2026-06-04T12:59:00.000Z",
+      "minutes_since_application": 99,
+      "channel": "sms",
+      "from_phone": "unistroy",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "unistroy"
+    },
+    {
+      "event_id": "E-SC-0418",
+      "application_id": "APP-1-301",
+      "event_at": "2026-06-04T17:39:00.000Z",
+      "minutes_since_application": 2,
+      "channel": "sms",
+      "from_phone": "unistroy",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "unistroy"
+    },
+    {
+      "event_id": "E-SC-0419",
+      "application_id": "APP-1-335",
+      "event_at": "2026-06-05T08:11:00.000Z",
+      "minutes_since_application": 40,
+      "channel": "sms",
+      "from_phone": "unistroy",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "unistroy"
+    },
+    {
+      "event_id": "E-SC-0420",
+      "application_id": "APP-1-335",
+      "event_at": "2026-06-05T09:20:00.000Z",
+      "minutes_since_application": 109,
+      "channel": "sms",
+      "from_phone": "unistroy",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "unistroy"
+    },
+    {
+      "event_id": "E-SC-0421",
+      "application_id": "APP-1-301",
+      "event_at": "2026-06-05T10:12:00.000Z",
+      "minutes_since_application": 995,
+      "channel": "sms",
+      "from_phone": "unistroy",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "unistroy"
+    },
+    {
+      "event_id": "E-SC-0422",
+      "application_id": "APP-1-335",
+      "event_at": "2026-06-05T10:17:00.000Z",
+      "minutes_since_application": 166,
+      "channel": "sms",
+      "from_phone": "unistroy",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "unistroy"
+    },
+    {
+      "event_id": "E-SC-0423",
+      "application_id": "APP-1-335",
+      "event_at": "2026-06-05T11:12:00.000Z",
+      "minutes_since_application": 221,
+      "channel": "sms",
+      "from_phone": "unistroy",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "unistroy"
+    },
+    {
+      "event_id": "E-SC-0424",
+      "application_id": "APP-1-335",
+      "event_at": "2026-06-05T12:13:00.000Z",
+      "minutes_since_application": 282,
+      "channel": "sms",
+      "from_phone": "unistroy",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "unistroy"
+    },
+    {
+      "event_id": "E-SC-0425",
+      "application_id": "APP-1-335",
+      "event_at": "2026-06-05T12:51:00.000Z",
+      "minutes_since_application": 320,
+      "channel": "sms",
+      "from_phone": "unistroy",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "unistroy"
+    },
+    {
+      "event_id": "E-SC-0426",
+      "application_id": "APP-1-335",
+      "event_at": "2026-06-05T18:51:00.000Z",
+      "minutes_since_application": 680,
+      "channel": "sms",
+      "from_phone": "unistroy",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "unistroy"
+    },
+    {
+      "event_id": "E-SC-0427",
+      "application_id": "APP-1-335",
+      "event_at": "06.06.2026 3:51",
+      "minutes_since_application": 1040,
+      "channel": "sms",
+      "from_phone": "unistroy",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "unistroy"
+    },
+    {
+      "event_id": "E-SC-0428",
+      "application_id": "APP-1-335",
+      "event_at": "06.06.2026 9:51",
+      "minutes_since_application": 1400,
+      "channel": "sms",
+      "from_phone": "unistroy",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "unistroy"
+    },
+    {
+      "event_id": "E-SC-0429",
+      "application_id": "APP-1-437",
+      "event_at": "2026-06-06T20:10:00.000Z",
+      "minutes_since_application": 674,
+      "channel": "sms",
+      "from_phone": "unistroy",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "unistroy"
+    },
+    {
+      "event_id": "E-SC-0430",
+      "application_id": "APP-1-471",
+      "event_at": "2026-06-07T09:15:00.000Z",
+      "minutes_since_application": 1011,
+      "channel": "sms",
+      "from_phone": "unistroy",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "unistroy"
+    },
+    {
+      "event_id": "E-SC-0431",
+      "application_id": "APP-1-607",
+      "event_at": "2026-06-07T14:27:00.000Z",
+      "minutes_since_application": 1000,
+      "channel": "sms",
+      "from_phone": "unistroy",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "unistroy"
+    },
+    {
+      "event_id": "E-SC-0432",
+      "application_id": "APP-1-573",
+      "event_at": "08.06.2026 0:47",
+      "minutes_since_application": 480,
+      "channel": "sms",
+      "from_phone": "unistroy",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "unistroy"
+    },
+    {
+      "event_id": "E-SC-0433",
+      "application_id": "APP-1-437",
+      "event_at": "2026-06-08T08:46:00.000Z",
+      "minutes_since_application": 2870,
+      "channel": "sms",
+      "from_phone": "unistroy",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "unistroy"
+    },
+    {
+      "event_id": "E-SC-0434",
+      "application_id": "APP-1-641",
+      "event_at": "2026-06-08T09:33:00.000Z",
+      "minutes_since_application": 79,
+      "channel": "sms",
+      "from_phone": "unistroy",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "unistroy"
+    },
+    {
+      "event_id": "E-SC-0435",
+      "application_id": "APP-1-573",
+      "event_at": "2026-06-08T10:48:00.000Z",
+      "minutes_since_application": 1261,
+      "channel": "sms",
+      "from_phone": "unistroy",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "unistroy"
+    },
+    {
+      "event_id": "E-SC-0436",
+      "application_id": "APP-1-675",
+      "event_at": "2026-06-08T13:40:00.000Z",
+      "minutes_since_application": 113,
+      "channel": "sms",
+      "from_phone": "unistroy",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "unistroy"
+    },
+    {
+      "event_id": "E-SC-0437",
+      "application_id": "APP-1-539",
+      "event_at": "2026-06-08T14:59:00.000Z",
+      "minutes_since_application": 1826,
+      "channel": "sms",
+      "from_phone": "unistroy",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "unistroy"
+    },
+    {
+      "event_id": "events_sms_calls-1008",
+      "application_id": "",
+      "event_at": "2026-06-02T12:06:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-60-72",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-0574",
+      "application_id": "APP-1-029",
+      "event_at": "2026-06-02T13:28:00.000Z",
+      "minutes_since_application": 361,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-60-82",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-0588",
+      "application_id": "APP-1-029",
+      "event_at": "2026-06-02T15:54:00.000Z",
+      "minutes_since_application": 507,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-53",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-1339",
+      "application_id": "",
+      "event_at": "2026-06-03T09:25:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-07",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-0749",
+      "application_id": "APP-1-029",
+      "event_at": "2026-06-03T10:23:00.000Z",
+      "minutes_since_application": 1616,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-47",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-0782",
+      "application_id": "APP-1-097",
+      "event_at": "2026-06-03T11:04:00.000Z",
+      "minutes_since_application": 916,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-60-68",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-0783",
+      "application_id": "APP-1-165",
+      "event_at": "2026-06-03T11:05:00.000Z",
+      "minutes_since_application": 48,
+      "channel": "call",
+      "from_phone": "+7 (812) 313-23-70",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-0790",
+      "application_id": "APP-1-165",
+      "event_at": "2026-06-03T11:15:00.000Z",
+      "minutes_since_application": 58,
+      "channel": "call",
+      "from_phone": "+7 (812) 237-60-28",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-1088",
+      "application_id": "APP-1-199",
+      "event_at": "2026-06-04T08:24:00.000Z",
+      "minutes_since_application": 938,
+      "channel": "call",
+      "from_phone": "+7 (812) 237-60-45",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-1113",
+      "application_id": "APP-1-233",
+      "event_at": "2026-06-04T08:59:00.000Z",
+      "minutes_since_application": 96,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-53",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-1121",
+      "application_id": "APP-1-165",
+      "event_at": "2026-06-04T09:10:00.000Z",
+      "minutes_since_application": 1373,
+      "channel": "call",
+      "from_phone": "+7 (812) 237-60-45",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-1127",
+      "application_id": "APP-1-097",
+      "event_at": "2026-06-04T09:16:00.000Z",
+      "minutes_since_application": 2248,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-51",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-1233",
+      "application_id": "APP-1-267",
+      "event_at": "2026-06-04T11:39:00.000Z",
+      "minutes_since_application": 19,
+      "channel": "call",
+      "from_phone": "+7 (812) 237-60-45",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-1241",
+      "application_id": "APP-1-233",
+      "event_at": "2026-06-04T11:57:00.000Z",
+      "minutes_since_application": 274,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-53",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-2310",
+      "application_id": "",
+      "event_at": "2026-06-04T13:03:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-60-72",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-1508",
+      "application_id": "APP-1-233",
+      "event_at": "2026-06-05T07:22:00.000Z",
+      "minutes_since_application": 1439,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-07",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-1533",
+      "application_id": "APP-1-335",
+      "event_at": "2026-06-05T07:41:00.000Z",
+      "minutes_since_application": 10,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-07",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-1535",
+      "application_id": "APP-1-301",
+      "event_at": "2026-06-05T07:43:00.000Z",
+      "minutes_since_application": 846,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-47",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-1632",
+      "application_id": "APP-1-301",
+      "event_at": "2026-06-05T10:11:00.000Z",
+      "minutes_since_application": 994,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-60-94",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-2952",
+      "application_id": "",
+      "event_at": "2026-06-05T10:38:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-60-82",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-1656",
+      "application_id": "APP-1-063",
+      "event_at": "2026-06-05T10:44:00.000Z",
+      "minutes_since_application": 4316,
+      "channel": "call",
+      "from_phone": "+7 (812) 270-78-46",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-1725",
+      "application_id": "APP-1-233",
+      "event_at": "2026-06-05T12:50:00.000Z",
+      "minutes_since_application": 1767,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-47",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-1732",
+      "application_id": "APP-1-301",
+      "event_at": "2026-06-05T12:55:00.000Z",
+      "minutes_since_application": 1158,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-53",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-3215",
+      "application_id": "",
+      "event_at": "2026-06-05T13:54:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (812) 270-79-08",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-1780",
+      "application_id": "APP-1-403",
+      "event_at": "2026-06-05T16:33:00.000Z",
+      "minutes_since_application": 6,
+      "channel": "call",
+      "from_phone": "+7 (812) 237-60-28",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-1947",
+      "application_id": "APP-1-403",
+      "event_at": "2026-06-06T09:49:00.000Z",
+      "minutes_since_application": 1042,
+      "channel": "call",
+      "from_phone": "+7 (812) 313-23-70",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-3683",
+      "application_id": "",
+      "event_at": "2026-06-06T09:54:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (812) 270-78-46",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-4058",
+      "application_id": "",
+      "event_at": "2026-06-07T07:05:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (812) 270-79-08",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2095",
+      "application_id": "APP-1-267",
+      "event_at": "2026-06-07T07:20:00.000Z",
+      "minutes_since_application": 4080,
+      "channel": "call",
+      "from_phone": "+7 (812) 313-23-70",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2176",
+      "application_id": "APP-1-471",
+      "event_at": "2026-06-07T09:14:00.000Z",
+      "minutes_since_application": 1010,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-60-72",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2314",
+      "application_id": "APP-1-607",
+      "event_at": "2026-06-07T14:26:00.000Z",
+      "minutes_since_application": 999,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-60-82",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2426",
+      "application_id": "APP-1-573",
+      "event_at": "08.06.2026 9:12",
+      "minutes_since_application": 985,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-60-82",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2528",
+      "application_id": "APP-1-437",
+      "event_at": "2026-06-08T07:39:00.000Z",
+      "minutes_since_application": 2803,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-07",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2588",
+      "application_id": "APP-1-437",
+      "event_at": "2026-06-08T08:45:00.000Z",
+      "minutes_since_application": 2869,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-60-94",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2611",
+      "application_id": "APP-1-573",
+      "event_at": "2026-06-08T09:17:00.000Z",
+      "minutes_since_application": 1170,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-60-94",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2621",
+      "application_id": "APP-1-641",
+      "event_at": "2026-06-08T09:32:00.000Z",
+      "minutes_since_application": 78,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-53",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2644",
+      "application_id": "APP-1-539",
+      "event_at": "2026-06-08T10:15:00.000Z",
+      "minutes_since_application": 1542,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-03",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2667",
+      "application_id": "APP-1-573",
+      "event_at": "2026-06-08T10:46:00.000Z",
+      "minutes_since_application": 1259,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-07",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2729",
+      "application_id": "APP-1-675",
+      "event_at": "2026-06-08T12:02:00.000Z",
+      "minutes_since_application": 15,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-60-68",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2775",
+      "application_id": "APP-1-675",
+      "event_at": "2026-06-08T13:39:00.000Z",
+      "minutes_since_application": 112,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-03",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2803",
+      "application_id": "APP-1-607",
+      "event_at": "2026-06-08T14:22:00.000Z",
+      "minutes_since_application": 2435,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-07",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2810",
+      "application_id": "APP-1-471",
+      "event_at": "2026-06-08T14:38:00.000Z",
+      "minutes_since_application": 2774,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-51",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2817",
+      "application_id": "APP-1-539",
+      "event_at": "2026-06-08T14:58:00.000Z",
+      "minutes_since_application": 1825,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-07",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2851",
+      "application_id": "APP-1-437",
+      "event_at": "09.06.2026 8:37",
+      "minutes_since_application": 4121,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-07",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-5767",
+      "application_id": "",
+      "event_at": "2026-06-09T07:45:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-53",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-5776",
+      "application_id": "",
+      "event_at": "2026-06-09T07:55:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-47",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-5835",
+      "application_id": "",
+      "event_at": "2026-06-09T08:45:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-07",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-5846",
+      "application_id": "",
+      "event_at": "2026-06-09T09:15:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-60-94",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-6098",
+      "application_id": "",
+      "event_at": "2026-06-09T13:27:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-51",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2936",
+      "application_id": "APP-1-607",
+      "event_at": "2026-06-09T14:26:00.000Z",
+      "minutes_since_application": 3879,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-47",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2937",
+      "application_id": "APP-1-505",
+      "event_at": "2026-06-09T14:27:00.000Z",
+      "minutes_since_application": 3977,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-51",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-6190",
+      "application_id": "",
+      "event_at": "2026-06-09T14:55:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-60-82",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-6192",
+      "application_id": "",
+      "event_at": "2026-06-09T14:56:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-03",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-6361",
+      "application_id": "",
+      "event_at": "2026-06-10T07:48:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-60-68",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-6422",
+      "application_id": "",
+      "event_at": "2026-06-10T08:36:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-60-82",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-6530",
+      "application_id": "",
+      "event_at": "2026-06-10T09:57:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-47",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2996",
+      "application_id": "APP-1-641",
+      "event_at": "2026-06-10T10:29:00.000Z",
+      "minutes_since_application": 3015,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-03",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-6607",
+      "application_id": "",
+      "event_at": "2026-06-10T11:08:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-60-94",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-6670",
+      "application_id": "",
+      "event_at": "2026-06-10T12:04:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-51",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-6676",
+      "application_id": "",
+      "event_at": "2026-06-10T12:08:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-03",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-3004",
+      "application_id": "APP-1-641",
+      "event_at": "2026-06-10T12:20:00.000Z",
+      "minutes_since_application": 3126,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-47",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-6734",
+      "application_id": "",
+      "event_at": "2026-06-10T12:46:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-60-82",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-6746",
+      "application_id": "",
+      "event_at": "2026-06-10T12:50:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-03",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-6783",
+      "application_id": "",
+      "event_at": "2026-06-10T13:43:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-51",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-6833",
+      "application_id": "",
+      "event_at": "2026-06-10T14:38:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-53",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-6870",
+      "application_id": "",
+      "event_at": "2026-06-10T15:30:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-60-72",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-6988",
+      "application_id": "",
+      "event_at": "2026-06-11T07:24:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-60-82",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-3025",
+      "application_id": "APP-1-675",
+      "event_at": "2026-06-11T07:40:00.000Z",
+      "minutes_since_application": 4073,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-60-68",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-3026",
+      "application_id": "APP-1-675",
+      "event_at": "2026-06-11T07:40:00.000Z",
+      "minutes_since_application": 4073,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-53",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-7086",
+      "application_id": "",
+      "event_at": "2026-06-11T08:58:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-90-03",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-7142",
+      "application_id": "",
+      "event_at": "2026-06-11T10:21:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-60-82",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-7171",
+      "application_id": "",
+      "event_at": "2026-06-11T10:56:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-60-94",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-7205",
+      "application_id": "",
+      "event_at": "2026-06-11T11:36:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-60-68",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-7314",
+      "application_id": "",
+      "event_at": "2026-06-11T13:47:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (843) 210-60-94",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    }
+  ]
+}

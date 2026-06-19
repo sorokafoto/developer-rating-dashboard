@@ -1,0 +1,481 @@
+{
+  "developer_name": "КОМОССТРОЙ",
+  "url": "https://komosstroy.ru",
+  "quarter_id": "2026-Q2",
+  "applications": [
+    {
+      "application_id": "APP-3-019",
+      "submitted_at": "2026-06-02T09:49:59.999Z",
+      "time_slot": "morning",
+      "day_of_week": "tuesday",
+      "got_identified_call": false,
+      "phone_number": "+7 (901) 347-53-59"
+    },
+    {
+      "application_id": "APP-3-052",
+      "submitted_at": "2026-06-02T13:29:00.000Z",
+      "time_slot": "afternoon",
+      "day_of_week": "tuesday",
+      "got_identified_call": true,
+      "phone_number": "+7 (991) 134-10-86"
+    },
+    {
+      "application_id": "APP-3-085",
+      "submitted_at": "2026-06-02T19:23:00.000Z",
+      "time_slot": "evening",
+      "day_of_week": "tuesday",
+      "got_identified_call": false,
+      "phone_number": "+7 (991) 238-50-38"
+    },
+    {
+      "application_id": "APP-3-118",
+      "submitted_at": "2026-06-03T09:20:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "tuesday",
+      "got_identified_call": false,
+      "phone_number": "+7 (903) 586-90-43"
+    },
+    {
+      "application_id": "APP-3-151",
+      "submitted_at": "2026-06-03T13:27:00.000Z",
+      "time_slot": "afternoon",
+      "day_of_week": "tuesday",
+      "got_identified_call": false,
+      "phone_number": "+7 (903) 586-90-53"
+    },
+    {
+      "application_id": "APP-3-184",
+      "submitted_at": "2026-06-03T19:25:00.000Z",
+      "time_slot": "evening",
+      "day_of_week": "tuesday",
+      "got_identified_call": false,
+      "phone_number": "+7 (906) 708-49-29"
+    },
+    {
+      "application_id": "APP-3-217",
+      "submitted_at": "2026-06-04T09:31:59.999Z",
+      "time_slot": "morning",
+      "day_of_week": "thursday",
+      "got_identified_call": false,
+      "phone_number": "+7 (909) 955-34-30"
+    },
+    {
+      "application_id": "APP-3-250",
+      "submitted_at": "2026-06-04T13:25:00.000Z",
+      "time_slot": "afternoon",
+      "day_of_week": "thursday",
+      "got_identified_call": false,
+      "phone_number": "+7 (901) 335-66-79"
+    },
+    {
+      "application_id": "APP-3-283",
+      "submitted_at": "2026-06-04T19:38:59.999Z",
+      "time_slot": "evening",
+      "day_of_week": "thursday",
+      "got_identified_call": false,
+      "phone_number": "+7 (991) 181-01-99"
+    },
+    {
+      "application_id": "APP-3-316",
+      "submitted_at": "2026-06-05T09:34:59.999Z",
+      "time_slot": "morning",
+      "day_of_week": "friday",
+      "got_identified_call": false,
+      "phone_number": "+7 (965) 127-47-13"
+    },
+    {
+      "application_id": "APP-3-349",
+      "submitted_at": "2026-06-05T13:31:59.999Z",
+      "time_slot": "afternoon",
+      "day_of_week": "friday",
+      "got_identified_call": false,
+      "phone_number": "+7 (903) 964-17-42"
+    },
+    {
+      "application_id": "APP-3-382",
+      "submitted_at": "2026-06-05T19:46:00.000Z",
+      "time_slot": "evening",
+      "day_of_week": "friday",
+      "got_identified_call": false,
+      "phone_number": "+7 (965) 127-09-80"
+    },
+    {
+      "application_id": "APP-3-415",
+      "submitted_at": "2026-06-06T09:38:59.999Z",
+      "time_slot": "morning",
+      "day_of_week": "saturday",
+      "got_identified_call": false,
+      "phone_number": "+7 (903) 673-81-93"
+    },
+    {
+      "application_id": "APP-3-448",
+      "submitted_at": "2026-06-06T14:30:00.000Z",
+      "time_slot": "afternoon",
+      "day_of_week": "saturday",
+      "got_identified_call": false,
+      "phone_number": "+7 (967) 016-79-41"
+    },
+    {
+      "application_id": "APP-3-481",
+      "submitted_at": "2026-06-06T19:40:00.000Z",
+      "time_slot": "evening",
+      "day_of_week": "saturday",
+      "got_identified_call": false,
+      "phone_number": "+7 (903) 739-96-34"
+    },
+    {
+      "application_id": "APP-3-547",
+      "submitted_at": "2026-06-07T13:53:00.000Z",
+      "time_slot": "afternoon",
+      "day_of_week": "sunday",
+      "got_identified_call": false,
+      "phone_number": "+7 (905) 513-31-09"
+    },
+    {
+      "application_id": "APP-3-580",
+      "submitted_at": "2026-06-07T19:21:00.000Z",
+      "time_slot": "evening",
+      "day_of_week": "sunday",
+      "got_identified_call": false,
+      "phone_number": "+7 (901) 507-47-17"
+    },
+    {
+      "application_id": "APP-3-613",
+      "submitted_at": "2026-06-08T09:19:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "monday",
+      "got_identified_call": false,
+      "phone_number": "+7 (930) 925-06-25"
+    },
+    {
+      "application_id": "APP-3-646",
+      "submitted_at": "2026-06-08T13:16:59.999Z",
+      "time_slot": "afternoon",
+      "day_of_week": "monday",
+      "got_identified_call": false,
+      "phone_number": "+7 (930) 954-93-00"
+    },
+    {
+      "application_id": "APP-3-679",
+      "submitted_at": "2026-06-08T19:21:00.000Z",
+      "time_slot": "evening",
+      "day_of_week": "monday",
+      "got_identified_call": false,
+      "phone_number": "+7 (930) 964-06-44"
+    }
+  ],
+  "events": [
+    {
+      "event_id": "E-M-0040",
+      "application_id": "APP-3-250",
+      "event_at": "2026-06-04T14:42:59.999Z",
+      "minutes_since_application": 78,
+      "channel": "max",
+      "from_phone": "—",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-M-0047",
+      "application_id": "APP-3-118",
+      "event_at": "2026-06-03T12:22:00.000Z",
+      "minutes_since_application": 182,
+      "channel": "max",
+      "from_phone": "—",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-0202",
+      "application_id": "APP-3-019",
+      "event_at": "02.06.2026 9:50",
+      "minutes_since_application": 0,
+      "channel": "sms",
+      "from_phone": "KOMOSSTROY",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "KOMOSSTROY"
+    },
+    {
+      "event_id": "E-SC-0203",
+      "application_id": "APP-3-052",
+      "event_at": "2026-06-02T10:30:00.000Z",
+      "minutes_since_application": 1,
+      "channel": "sms",
+      "from_phone": "KOMOSSTROY",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "KOMOSSTROY"
+    },
+    {
+      "event_id": "E-SC-0204",
+      "application_id": "APP-3-118",
+      "event_at": "2026-06-03T10:27:00.000Z",
+      "minutes_since_application": 247,
+      "channel": "sms",
+      "from_phone": "KOMOSSTROY",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "KOMOSSTROY"
+    },
+    {
+      "event_id": "E-SC-0205",
+      "application_id": "APP-3-184",
+      "event_at": "04.06.2026 9:32",
+      "minutes_since_application": 847,
+      "channel": "sms",
+      "from_phone": "KOMOSSTROY",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "KOMOSSTROY"
+    },
+    {
+      "event_id": "E-SC-0206",
+      "application_id": "APP-3-250",
+      "event_at": "2026-06-04T10:25:00.000Z",
+      "minutes_since_application": 0,
+      "channel": "sms",
+      "from_phone": "KOMOSSTROY",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "KOMOSSTROY"
+    },
+    {
+      "event_id": "E-SC-0207",
+      "application_id": "APP-3-250",
+      "event_at": "2026-06-04T11:37:00.000Z",
+      "minutes_since_application": 72,
+      "channel": "sms",
+      "from_phone": "KOMOSSTROY",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "KOMOSSTROY"
+    },
+    {
+      "event_id": "E-SC-0208",
+      "application_id": "APP-3-283",
+      "event_at": "2026-06-04T16:39:00.000Z",
+      "minutes_since_application": 0,
+      "channel": "sms",
+      "from_phone": "KOMOSSTROY",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "KOMOSSTROY"
+    },
+    {
+      "event_id": "E-SC-0209",
+      "application_id": "APP-3-283",
+      "event_at": "05.06.2026 8:31",
+      "minutes_since_application": 772,
+      "channel": "sms",
+      "from_phone": "KOMOSSTROY",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "KOMOSSTROY"
+    },
+    {
+      "event_id": "E-SC-0210",
+      "application_id": "APP-3-316",
+      "event_at": "05.06.2026 9:35",
+      "minutes_since_application": 0,
+      "channel": "sms",
+      "from_phone": "KOMOSSTROY",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "KOMOSSTROY"
+    },
+    {
+      "event_id": "E-SC-0211",
+      "application_id": "APP-3-316",
+      "event_at": "05.06.2026 9:43",
+      "minutes_since_application": 8,
+      "channel": "sms",
+      "from_phone": "KOMOSSTROY",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "KOMOSSTROY"
+    },
+    {
+      "event_id": "E-SC-0212",
+      "application_id": "APP-3-151",
+      "event_at": "2026-06-05T08:05:00.000Z",
+      "minutes_since_application": 2738,
+      "channel": "sms",
+      "from_phone": "KOMOSSTROY",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "KOMOSSTROY"
+    },
+    {
+      "event_id": "E-SC-0213",
+      "application_id": "APP-3-349",
+      "event_at": "2026-06-05T10:32:00.000Z",
+      "minutes_since_application": 0,
+      "channel": "sms",
+      "from_phone": "KOMOSSTROY",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "KOMOSSTROY"
+    },
+    {
+      "event_id": "E-SC-0214",
+      "application_id": "APP-3-382",
+      "event_at": "2026-06-05T16:46:00.000Z",
+      "minutes_since_application": 0,
+      "channel": "sms",
+      "from_phone": "KOMOSSTROY",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "KOMOSSTROY"
+    },
+    {
+      "event_id": "E-SC-0215",
+      "application_id": "APP-3-415",
+      "event_at": "06.06.2026 9:39",
+      "minutes_since_application": 0,
+      "channel": "sms",
+      "from_phone": "KOMOSSTROY",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "KOMOSSTROY"
+    },
+    {
+      "event_id": "E-SC-0216",
+      "application_id": "APP-3-250",
+      "event_at": "2026-06-06T07:46:00.000Z",
+      "minutes_since_application": 2721,
+      "channel": "sms",
+      "from_phone": "KOMOSSTROY",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "KOMOSSTROY"
+    },
+    {
+      "event_id": "E-SC-0217",
+      "application_id": "APP-3-349",
+      "event_at": "2026-06-06T09:56:00.000Z",
+      "minutes_since_application": 1404,
+      "channel": "sms",
+      "from_phone": "KOMOSSTROY",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "KOMOSSTROY"
+    },
+    {
+      "event_id": "E-SC-0218",
+      "application_id": "APP-3-448",
+      "event_at": "2026-06-06T16:40:00.000Z",
+      "minutes_since_application": 310,
+      "channel": "sms",
+      "from_phone": "KOMOSSTROY",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "KOMOSSTROY"
+    },
+    {
+      "event_id": "E-SC-0219",
+      "application_id": "APP-3-580",
+      "event_at": "08.06.2026 9:19",
+      "minutes_since_application": 838,
+      "channel": "sms",
+      "from_phone": "KOMOSSTROY",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "KOMOSSTROY"
+    },
+    {
+      "event_id": "E-SC-0220",
+      "application_id": "APP-3-613",
+      "event_at": "08.06.2026 9:27",
+      "minutes_since_application": 8,
+      "channel": "sms",
+      "from_phone": "KOMOSSTROY",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "KOMOSSTROY"
+    },
+    {
+      "event_id": "E-SC-0221",
+      "application_id": "APP-3-481",
+      "event_at": "2026-06-08T11:04:00.000Z",
+      "minutes_since_application": 2544,
+      "channel": "sms",
+      "from_phone": "KOMOSSTROY",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "KOMOSSTROY"
+    },
+    {
+      "event_id": "E-SC-0222",
+      "application_id": "APP-3-448",
+      "event_at": "2026-06-08T12:34:00.000Z",
+      "minutes_since_application": 2944,
+      "channel": "sms",
+      "from_phone": "KOMOSSTROY",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "KOMOSSTROY"
+    },
+    {
+      "event_id": "E-SC-0223",
+      "application_id": "APP-3-646",
+      "event_at": "2026-06-08T16:21:00.000Z",
+      "minutes_since_application": 364,
+      "channel": "sms",
+      "from_phone": "KOMOSSTROY",
+      "identified_status": "developer",
+      "verification_confidence": "high",
+      "sms_mark": "KOMOSSTROY"
+    },
+    {
+      "event_id": "E-SC-0545",
+      "application_id": "APP-3-052",
+      "event_at": "2026-06-02T11:11:00.000Z",
+      "minutes_since_application": 42,
+      "channel": "call",
+      "from_phone": "+7 (927) 409-14-51",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-0581",
+      "application_id": "APP-3-052",
+      "event_at": "2026-06-02T14:21:00.000Z",
+      "minutes_since_application": 232,
+      "channel": "call",
+      "from_phone": "+7 (927) 409-14-51",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-0676",
+      "application_id": "APP-3-052",
+      "event_at": "2026-06-03T07:51:00.000Z",
+      "minutes_since_application": 1282,
+      "channel": "call",
+      "from_phone": "+7 (927) 409-14-51",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-0880",
+      "application_id": "APP-3-052",
+      "event_at": "2026-06-03T14:08:00.000Z",
+      "minutes_since_application": 1659,
+      "channel": "call",
+      "from_phone": "+7 (927) 409-14-51",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-1015",
+      "application_id": "APP-3-052",
+      "event_at": "04.06.2026 9:53",
+      "minutes_since_application": 2664,
+      "channel": "call",
+      "from_phone": "+7 (927) 409-14-51",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    }
+  ]
+}

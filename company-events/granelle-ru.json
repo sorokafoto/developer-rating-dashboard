@@ -1,0 +1,93 @@
+{
+  "developer_name": "Гранель",
+  "url": "https://granelle.ru",
+  "quarter_id": "2026-Q2",
+  "applications": [
+    {
+      "application_id": "APP-1-028",
+      "submitted_at": "2026-06-02T10:25:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "tuesday",
+      "got_identified_call": false,
+      "phone_number": "+7 (903) 586-90-43"
+    },
+    {
+      "application_id": "APP-1-062",
+      "submitted_at": "2026-06-02T13:47:59.999Z",
+      "time_slot": "afternoon",
+      "day_of_week": "tuesday",
+      "got_identified_call": false,
+      "phone_number": "+7 (903) 739-96-34"
+    },
+    {
+      "application_id": "APP-1-096",
+      "submitted_at": "2026-06-02T22:52:00.000Z",
+      "time_slot": "evening",
+      "day_of_week": "tuesday",
+      "got_identified_call": false,
+      "phone_number": "+7 (906) 708-49-29"
+    },
+    {
+      "application_id": "APP-1-198",
+      "submitted_at": "2026-06-03T19:47:59.999Z",
+      "time_slot": "evening",
+      "day_of_week": "wednesday",
+      "got_identified_call": true,
+      "phone_number": "+7 (991) 181-01-99"
+    },
+    {
+      "application_id": "APP-1-300",
+      "submitted_at": "2026-06-04T23:30:00.000Z",
+      "time_slot": "evening",
+      "day_of_week": "thursday",
+      "got_identified_call": false,
+      "phone_number": "+7 (965) 127-09-80"
+    },
+    {
+      "application_id": "APP-1-334",
+      "submitted_at": "2026-06-05T09:46:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "friday",
+      "got_identified_call": false,
+      "phone_number": "+7 (903) 673-81-93"
+    },
+    {
+      "application_id": "APP-1-470",
+      "submitted_at": "2026-06-06T19:25:00.000Z",
+      "time_slot": "afternoon",
+      "day_of_week": "saturday",
+      "got_identified_call": false,
+      "phone_number": "+7 (901) 507-47-17"
+    },
+    {
+      "application_id": "APP-1-504",
+      "submitted_at": "2026-06-06T23:08:59.999Z",
+      "time_slot": "evening",
+      "day_of_week": "saturday",
+      "got_identified_call": false,
+      "phone_number": "+7 (905) 513-31-09"
+    }
+  ],
+  "events": [
+    {
+      "event_id": "E-SC-0910",
+      "application_id": "APP-1-198",
+      "event_at": "2026-06-03T16:48:00.000Z",
+      "minutes_since_application": 0,
+      "channel": "call",
+      "from_phone": "+7 (499) 490-01-73",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-3934",
+      "application_id": "",
+      "event_at": "2026-06-06T16:25:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (499) 490-01-73",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    }
+  ]
+}

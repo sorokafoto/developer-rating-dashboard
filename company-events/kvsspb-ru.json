@@ -1,0 +1,497 @@
+{
+  "developer_name": "КВС",
+  "url": "https://kvsspb.ru/",
+  "quarter_id": "2026-Q2",
+  "applications": [
+    {
+      "application_id": "APP-1-024",
+      "submitted_at": "2026-06-02T10:19:59.999Z",
+      "time_slot": "morning",
+      "day_of_week": "tuesday",
+      "got_identified_call": true,
+      "phone_number": "+7 (903) 586-90-43"
+    },
+    {
+      "application_id": "APP-1-058",
+      "submitted_at": "2026-06-02T13:42:00.000Z",
+      "time_slot": "afternoon",
+      "day_of_week": "tuesday",
+      "got_identified_call": false,
+      "phone_number": "+7 (903) 739-96-34"
+    },
+    {
+      "application_id": "APP-1-092",
+      "submitted_at": "2026-06-02T22:54:59.999Z",
+      "time_slot": "evening",
+      "day_of_week": "tuesday",
+      "got_identified_call": true,
+      "phone_number": "+7 (906) 708-49-29"
+    },
+    {
+      "application_id": "APP-1-126",
+      "submitted_at": "2026-06-03T10:00:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "wednesday",
+      "got_identified_call": false,
+      "phone_number": "+7 (909) 955-34-30"
+    },
+    {
+      "application_id": "APP-1-160",
+      "submitted_at": "2026-06-03T13:33:00.000Z",
+      "time_slot": "afternoon",
+      "day_of_week": "wednesday",
+      "got_identified_call": true,
+      "phone_number": "+7 (901) 335-66-79"
+    },
+    {
+      "application_id": "APP-1-194",
+      "submitted_at": "2026-06-03T20:57:00.000Z",
+      "time_slot": "evening",
+      "day_of_week": "wednesday",
+      "got_identified_call": true,
+      "phone_number": "+7 (991) 181-01-99"
+    },
+    {
+      "application_id": "APP-1-228",
+      "submitted_at": "2026-06-04T10:12:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "thursday",
+      "got_identified_call": true,
+      "phone_number": "+7 (965) 127-47-13"
+    },
+    {
+      "application_id": "APP-1-262",
+      "submitted_at": "2026-06-04T14:12:00.000Z",
+      "time_slot": "afternoon",
+      "day_of_week": "thursday",
+      "got_identified_call": false,
+      "phone_number": "+7 (903) 964-17-42"
+    },
+    {
+      "application_id": "APP-1-296",
+      "submitted_at": "2026-06-04T21:20:00.000Z",
+      "time_slot": "evening",
+      "day_of_week": "thursday",
+      "got_identified_call": true,
+      "phone_number": "+7 (965) 127-09-80"
+    },
+    {
+      "application_id": "APP-1-330",
+      "submitted_at": "2026-06-05T09:58:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "friday",
+      "got_identified_call": true,
+      "phone_number": "+7 (903) 673-81-93"
+    },
+    {
+      "application_id": "APP-1-364",
+      "submitted_at": "2026-06-05T13:40:00.000Z",
+      "time_slot": "afternoon",
+      "day_of_week": "friday",
+      "got_identified_call": false,
+      "phone_number": "+7 (967) 016-79-41"
+    },
+    {
+      "application_id": "APP-1-398",
+      "submitted_at": "2026-06-05T21:41:00.000Z",
+      "time_slot": "evening",
+      "day_of_week": "friday",
+      "got_identified_call": true,
+      "phone_number": "+7 (903) 586-90-53"
+    },
+    {
+      "application_id": "APP-1-432",
+      "submitted_at": "2026-06-06T12:10:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "saturday",
+      "got_identified_call": false,
+      "phone_number": "+7 (903) 791-55-87"
+    },
+    {
+      "application_id": "APP-1-466",
+      "submitted_at": "2026-06-06T19:36:00.000Z",
+      "time_slot": "afternoon",
+      "day_of_week": "saturday",
+      "got_identified_call": false,
+      "phone_number": "+7 (905) 513-31-09"
+    },
+    {
+      "application_id": "APP-1-500",
+      "submitted_at": "2026-06-06T23:04:00.000Z",
+      "time_slot": "evening",
+      "day_of_week": "saturday",
+      "got_identified_call": true,
+      "phone_number": "+7 (901) 507-47-17"
+    },
+    {
+      "application_id": "APP-1-534",
+      "submitted_at": "2026-06-07T11:28:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "sunday",
+      "got_identified_call": false,
+      "phone_number": "+7 (930) 925-06-25"
+    },
+    {
+      "application_id": "APP-1-568",
+      "submitted_at": "2026-06-07T16:40:00.000Z",
+      "time_slot": "afternoon",
+      "day_of_week": "sunday",
+      "got_identified_call": true,
+      "phone_number": "+7 (930) 954-93-00"
+    },
+    {
+      "application_id": "APP-1-602",
+      "submitted_at": "2026-06-07T00:38:59.999Z",
+      "time_slot": "evening",
+      "day_of_week": "sunday",
+      "got_identified_call": true,
+      "phone_number": "+7 (930) 964-06-44"
+    },
+    {
+      "application_id": "APP-1-636",
+      "submitted_at": "2026-06-08T11:31:00.000Z",
+      "time_slot": "morning",
+      "day_of_week": "monday",
+      "got_identified_call": true,
+      "phone_number": "+7 (901) 347-53-59"
+    },
+    {
+      "application_id": "APP-1-670",
+      "submitted_at": "2026-06-08T14:41:00.000Z",
+      "time_slot": "afternoon",
+      "day_of_week": "monday",
+      "got_identified_call": true,
+      "phone_number": "+7 (991) 134-10-86"
+    },
+    {
+      "application_id": "APP-1-704",
+      "submitted_at": "2026-06-08T23:01:59.999Z",
+      "time_slot": "evening",
+      "day_of_week": "monday",
+      "got_identified_call": false,
+      "phone_number": "+7 (991) 238-50-38"
+    }
+  ],
+  "events": [
+    {
+      "event_id": "E-SC-0459",
+      "application_id": "APP-1-024",
+      "event_at": "2026-06-02T07:20:00.000Z",
+      "minutes_since_application": 0,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-0491",
+      "application_id": "APP-1-024",
+      "event_at": "2026-06-02T08:21:00.000Z",
+      "minutes_since_application": 61,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-0504",
+      "application_id": "APP-1-024",
+      "event_at": "2026-06-02T09:21:00.000Z",
+      "minutes_since_application": 121,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-0516",
+      "application_id": "APP-1-024",
+      "event_at": "2026-06-02T10:22:00.000Z",
+      "minutes_since_application": 182,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-992",
+      "application_id": "",
+      "event_at": "2026-06-02T11:44:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-1024",
+      "application_id": "",
+      "event_at": "2026-06-02T12:44:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-1041",
+      "application_id": "",
+      "event_at": "2026-06-02T13:45:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-0655",
+      "application_id": "APP-1-092",
+      "event_at": "2026-06-03T07:02:00.000Z",
+      "minutes_since_application": 667,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-0755",
+      "application_id": "APP-1-160",
+      "event_at": "2026-06-03T10:34:00.000Z",
+      "minutes_since_application": 1,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-0816",
+      "application_id": "APP-1-160",
+      "event_at": "2026-06-03T11:35:00.000Z",
+      "minutes_since_application": 62,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-0921",
+      "application_id": "APP-1-194",
+      "event_at": "2026-06-03T17:57:00.000Z",
+      "minutes_since_application": 0,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-1035",
+      "application_id": "APP-1-228",
+      "event_at": "2026-06-04T07:13:00.000Z",
+      "minutes_since_application": 1,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-1082",
+      "application_id": "APP-1-228",
+      "event_at": "2026-06-04T08:13:00.000Z",
+      "minutes_since_application": 61,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-1409",
+      "application_id": "APP-1-296",
+      "event_at": "05.06.2026 9:03",
+      "minutes_since_application": 703,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-1485",
+      "application_id": "APP-1-296",
+      "event_at": "2026-06-05T07:04:00.000Z",
+      "minutes_since_application": 764,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-1551",
+      "application_id": "APP-1-330",
+      "event_at": "2026-06-05T08:00:00.000Z",
+      "minutes_since_application": 62,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-1605",
+      "application_id": "APP-1-296",
+      "event_at": "2026-06-05T09:06:00.000Z",
+      "minutes_since_application": 886,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-2976",
+      "application_id": "",
+      "event_at": "2026-06-05T10:48:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-1829",
+      "application_id": "APP-1-398",
+      "event_at": "2026-06-06T07:01:00.000Z",
+      "minutes_since_application": 740,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-1882",
+      "application_id": "APP-1-398",
+      "event_at": "2026-06-06T08:03:00.000Z",
+      "minutes_since_application": 802,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-3639",
+      "application_id": "",
+      "event_at": "2026-06-06T09:10:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-3698",
+      "application_id": "",
+      "event_at": "2026-06-06T10:11:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "events_sms_calls-3763",
+      "application_id": "",
+      "event_at": "2026-06-06T11:12:00.000Z",
+      "minutes_since_application": null,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2154",
+      "application_id": "APP-1-500",
+      "event_at": "2026-06-07T08:29:00.000Z",
+      "minutes_since_application": 745,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2292",
+      "application_id": "APP-1-602",
+      "event_at": "2026-06-07T13:40:00.000Z",
+      "minutes_since_application": 961,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2321",
+      "application_id": "APP-1-602",
+      "event_at": "2026-06-07T14:41:00.000Z",
+      "minutes_since_application": 1022,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2333",
+      "application_id": "APP-1-602",
+      "event_at": "2026-06-07T15:42:00.000Z",
+      "minutes_since_application": 1083,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2415",
+      "application_id": "APP-1-602",
+      "event_at": "08.06.2026 9:05",
+      "minutes_since_application": 1946,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2489",
+      "application_id": "APP-1-568",
+      "event_at": "2026-06-08T07:02:00.000Z",
+      "minutes_since_application": 1042,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2546",
+      "application_id": "APP-1-568",
+      "event_at": "2026-06-08T08:03:00.000Z",
+      "minutes_since_application": 1103,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2579",
+      "application_id": "APP-1-636",
+      "event_at": "2026-06-08T08:32:00.000Z",
+      "minutes_since_application": 1,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    },
+    {
+      "event_id": "E-SC-2711",
+      "application_id": "APP-1-670",
+      "event_at": "2026-06-08T11:44:00.000Z",
+      "minutes_since_application": 3,
+      "channel": "call",
+      "from_phone": "+7 (812) 426-52-20",
+      "identified_status": "developer",
+      "verification_confidence": "high"
+    }
+  ]
+}

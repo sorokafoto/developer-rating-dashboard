@@ -34,12 +34,12 @@ npm run serve
 
 Репозиторий: https://github.com/sorokafoto/developer-rating-dashboard
 
-На Pages доступны поиск, обзор и KPI по `data.json`. Вкладка «Заявки» требует локальных `company-events/` (не публикуются из‑за PII) — сгенерируйте `npm run export-company-events` в `developer-response-rating` и откройте дашборд через `npm run serve`, либо положите JSON в `company-events/` перед деплоем, если осознанно выкладываете данные на приватный хостинг.
+На Pages доступны поиск, обзор, KPI и вкладка «Заявки» (`company-events/` в репозитории). Входящие номера в JSON маскированы; не публикуйте ссылку широко без необходимости.
 
 ## Приватность
 
-- Каталог `company-events/` содержит PII в маскированном виде и **не коммитится** (см. `.gitignore`).
-- Не деплоить `company-events/` на публичный хостинг вместе с дашбордом.
+- Каталог `company-events/` коммитится для GitHub Pages (маскированные входящие номера).
+- Обновление: `npm run export-company-events` в `developer-response-rating`, затем commit + push дашборда.
 - В браузер подгружается только JSON выбранной компании.
 
 ## Структура
