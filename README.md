@@ -28,6 +28,14 @@ npm run serve
 
 Откройте `http://localhost:4322/?company=Sminex`
 
+## GitHub Pages
+
+Публичный деплой: **https://sorokafoto.github.io/developer-rating-dashboard/**
+
+Репозиторий: https://github.com/sorokafoto/developer-rating-dashboard
+
+На Pages доступны поиск, обзор и KPI по `data.json`. Вкладка «Заявки» требует локальных `company-events/` (не публикуются из‑за PII) — сгенерируйте `npm run export-company-events` в `developer-response-rating` и откройте дашборд через `npm run serve`, либо положите JSON в `company-events/` перед деплоем, если осознанно выкладываете данные на приватный хостинг.
+
 ## Приватность
 
 - Каталог `company-events/` содержит PII в маскированном виде и **не коммитится** (см. `.gitignore`).
