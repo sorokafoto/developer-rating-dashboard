@@ -4,6 +4,9 @@
 
   var PLANNED_APPLICATIONS = 21;
   var APPLICATIONS_QUORUM = 11;
+  var ANALYTICS_WINDOW_MINUTES = 72 * 60;
+  var TOUCHES_IN_72H_LABEL = "Касаний за 72 часа";
+  var AVG_TOUCHES_PER_APP_LABEL = "Касаний на заявку";
   var CFG = window.APP_CONFIG || {};
   var STUDY_PERIOD = { from: "2026-06-02", to: "2026-06-08", label: "2–8 июня 2026" };
   var PERIOD_LABEL = "II квартал 2026";
@@ -15,6 +18,7 @@
     phonesData: null,
     companyEvents: null,
     companyEventsLoading: false,
+    companyEventsRequestId: 0,
     period: "2026-Q2",
     query: "",
     company: null,
@@ -49,8 +53,8 @@
     els.searchClear = document.getElementById("search-clear");
     els.searchToggle = document.getElementById("search-toggle");
     els.periodSelect = document.getElementById("period-select");
-    els.phonesPanel = document.getElementById("phones-panel");
-    els.phonesSummary = document.getElementById("phones-summary");
+    els.phonesModal = document.getElementById("phones-modal");
+    els.phonesModalClose = document.getElementById("phones-modal-close");
     els.phonesApplication = document.getElementById("phones-application");
     els.phonesVerification = document.getElementById("phones-verification");
     els.phonesAppCount = document.getElementById("phones-app-count");
@@ -65,10 +69,7 @@
     els.bannerInsufficient = document.getElementById("banner-insufficient");
     els.kpiGrid = document.getElementById("kpi-grid");
     els.execSummary = document.getElementById("exec-summary");
-    els.channelChart = document.getElementById("channel-chart");
-    els.touchesBlock = document.getElementById("touches-block");
     els.diagnostics = document.getElementById("diagnostics");
-    els.ctaText = document.getElementById("cta-text");
     els.applicationsSummary = document.getElementById("applications-summary");
     els.applicationsEmpty = document.getElementById("applications-empty");
     els.applicationsTable = document.getElementById("applications-table");
@@ -137,6 +138,44 @@
     if (els.btnCopyPhones) {
       els.btnCopyPhones.addEventListener("click", copyPhonesForClient);
     }
+
+    bindPhonesModalEvents();
+  }
+
+  function bindPhonesModalEvents() {
+    if (els.presentPeriod) {
+      els.presentPeriod.addEventListener("click", function (e) {
+        if (e.target && e.target.id === "phones-modal-trigger") openPhonesModal();
+      });
+    }
+    if (els.phonesModalClose) {
+      els.phonesModalClose.addEventListener("click", closePhonesModal);
+    }
+    if (els.phonesModal) {
+      els.phonesModal.addEventListener("click", function (e) {
+        if (e.target === els.phonesModal) closePhonesModal();
+      });
+    }
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && els.phonesModal && !els.phonesModal.hidden) {
+        closePhonesModal();
+      }
+    });
+  }
+
+  function openPhonesModal() {
+    if (!els.phonesModal || !periodPhones()) return;
+    els.phonesModal.hidden = false;
+    document.body.style.overflow = "hidden";
+    if (els.phonesModalClose) els.phonesModalClose.focus();
+  }
+
+  function closePhonesModal() {
+    if (!els.phonesModal) return;
+    els.phonesModal.hidden = true;
+    document.body.style.overflow = "";
+    var trigger = document.getElementById("phones-modal-trigger");
+    if (trigger) trigger.focus();
   }
 
   function loadPhones() {
@@ -148,9 +187,10 @@
       .then(function (data) {
         state.phonesData = data;
         renderPhones();
+        if (state.company) renderCompanyHeader();
       })
       .catch(function () {
-        if (els.phonesPanel) els.phonesPanel.hidden = true;
+        if (state.company) renderCompanyHeader();
       });
   }
 
@@ -161,12 +201,13 @@
 
   function renderPhones() {
     var p = periodPhones();
-    if (!els.phonesPanel) return;
     if (!p) {
-      els.phonesPanel.hidden = true;
+      if (els.phonesApplication) els.phonesApplication.innerHTML = "";
+      if (els.phonesVerification) els.phonesVerification.innerHTML = "";
+      if (els.phonesAppCount) els.phonesAppCount.textContent = "";
+      if (els.phonesVerifyCount) els.phonesVerifyCount.textContent = "";
       return;
     }
-    els.phonesPanel.hidden = false;
 
     els.phonesAppCount.textContent = "(" + (p.counts.application || 0) + ")";
     els.phonesVerifyCount.textContent = "(" + (p.counts.verification || 0) + ")";
@@ -180,11 +221,7 @@
     var verify = p.verification_phones || (p.verification_phone ? [p.verification_phone] : []);
     els.phonesVerification.innerHTML = verify
       .map(function (ph) {
-        return (
-          '<li><span class="dash-phones__verify-icon" title="Проверочный номер" aria-label="Проверочный номер">✓</span>' +
-          esc(formatPhone(ph)) +
-          "</li>"
-        );
+        return "<li>" + esc(formatPhone(ph)) + "</li>";
       })
       .join("");
   }
@@ -192,10 +229,17 @@
   function renderCompanyHeader() {
     var d = state.company;
     var p = periodPhones();
-    if (!d) return;
+    if (!d || !els.presentPeriod) return;
     var study = p && p.study_from && p.study_to ? formatStudyRange(p.study_from, p.study_to) : STUDY_PERIOD.label;
     var periodLabel = (p && p.label) || PERIOD_LABEL;
-    els.presentPeriod.textContent = periodLabel + " · исследование " + study;
+    var hasPhonesData = !!p;
+    els.presentPeriod.innerHTML =
+      esc(periodLabel) +
+      " · исследование " +
+      esc(study) +
+      (hasPhonesData
+        ? ' · <button type="button" class="dash-present__phones-link" id="phones-modal-trigger">Телефонные номера</button>'
+        : "");
   }
 
   function formatStudyRange(from, to) {
@@ -464,13 +508,17 @@
   function loadCompanyEvents(d) {
     if (!d) return;
     var slugs = companyEventSlugs(d);
+    var requestId = (state.companyEventsRequestId || 0) + 1;
+    state.companyEventsRequestId = requestId;
     state.companyEvents = null;
     state.companyEventsLoading = true;
     state.expandedAppId = null;
     renderCompanyDetailTabs();
 
     function tryFetch(index) {
+      if (requestId !== state.companyEventsRequestId) return;
       if (index >= slugs.length) {
+        if (requestId !== state.companyEventsRequestId) return;
         state.companyEvents = null;
         state.companyEventsLoading = false;
         renderCompanyDetailTabs();
@@ -482,11 +530,13 @@
           return r.json();
         })
         .then(function (data) {
+          if (requestId !== state.companyEventsRequestId) return;
           state.companyEvents = data;
           state.companyEventsLoading = false;
           renderCompanyDetailTabs();
         })
         .catch(function () {
+          if (requestId !== state.companyEventsRequestId) return;
           tryFetch(index + 1);
         });
     }
@@ -496,7 +546,7 @@
 
   function setTab(id) {
     if (id === "coverage") id = "applications";
-    if (id === "spam") id = "overview";
+    if (id === "spam" || id === "next" || id === "channels") id = "overview";
     state.tab = id;
     els.tabButtons.forEach(function (btn) {
       var active = btn.getAttribute("data-tab") === id;
@@ -595,20 +645,13 @@
         "</strong>. Для расчёта метрик нужно минимум " +
         APPLICATIONS_QUORUM +
         ".</p>";
-      els.channelChart.innerHTML = "";
-      els.touchesBlock.innerHTML = "";
       els.diagnostics.innerHTML = "";
-      els.ctaText.textContent =
-        "Предложите повторный замер после восстановления форм на сайте или обсудите технический аудит интеграции заявок.";
       return;
     }
 
     renderExecutiveSummary(d, m);
     renderKpis(d, m);
-    renderChannels(d);
-    renderTouches(d);
     renderDiagnostics(d, m);
-    renderCta(d, m);
     renderCompanyDetailTabs();
     setTab(state.tab);
   }
@@ -627,27 +670,80 @@
       renderApplicationsSummary(data);
       renderApplicationsTable(data);
     }
+
+    if (state.company && !state.company.insufficient_data) {
+      renderKpis(state.company, state.market);
+    }
+  }
+
+  function isTouchInRating(e) {
+    if (!e || e.identified_status !== "developer") return false;
+    if (!e.application_id) return false;
+    var m = e.minutes_since_application;
+    if (m == null || !Number.isFinite(m)) return false;
+    return m >= 0 && m <= ANALYTICS_WINDOW_MINUTES;
+  }
+
+  /** Единый подсчёт касаний в рейтинге: company-events, иначе total_touches из data.json. */
+  function getTouchesIn72hCount() {
+    var events = state.companyEvents && state.companyEvents.events;
+    if (events) return events.filter(isTouchInRating).length;
+    var d = state.company;
+    if (d && d.total_touches != null) return d.total_touches;
+    return null;
+  }
+
+  function formatTouchesIn72h() {
+    var n = getTouchesIn72hCount();
+    return n != null ? fmtInt(n) : "—";
+  }
+
+  function getRatingTouchEvents() {
+    var events = state.companyEvents && state.companyEvents.events;
+    return events ? events.filter(isTouchInRating) : [];
+  }
+
+  function getApplicationsSentCount() {
+    var apps = state.companyEvents && state.companyEvents.applications;
+    if (apps && apps.length) return apps.length;
+    var d = state.company;
+    return d && d.applications_sent != null ? d.applications_sent : 0;
+  }
+
+  function getApplicationsWithoutTouchesCount() {
+    var apps = state.companyEvents && state.companyEvents.applications;
+    if (apps && apps.length) {
+      var withTouch = {};
+      getRatingTouchEvents().forEach(function (e) {
+        if (e.application_id) withTouch[e.application_id] = true;
+      });
+      return apps.filter(function (a) {
+        return !withTouch[a.application_id];
+      }).length;
+    }
+    var d = state.company;
+    if (!d || d.applications_sent == null || d.no_callback_share == null) return null;
+    // no_callback_share = заявки без любого касания; для «без касаний» на вкладке Заявки, не no_call_share.
+    return Math.round((d.no_callback_share / 100) * d.applications_sent);
+  }
+
+  function getAvgTouchesPerApp() {
+    var sent = getApplicationsSentCount();
+    var touches = getTouchesIn72hCount();
+    if (!sent || touches == null) return null;
+    return touches / sent;
+  }
+
+  function formatAvgTouchesPerApp() {
+    var v = getAvgTouchesPerApp();
+    return v != null ? fmtNum(v) : "—";
   }
 
   function renderApplicationsSummary(data) {
     if (!els.applicationsSummary) return;
     var sent = (data.applications || []).length;
-    var identified = (data.events || []).filter(function (e) {
-      return e.identified_status === "developer";
-    });
-    var channelCounts = { call: 0, sms: 0, max: 0, whatsapp: 0, telegram: 0 };
-    identified.forEach(function (e) {
-      var ch = e.channel || "";
-      if (channelCounts[ch] != null) channelCounts[ch]++;
-    });
     var quorumMet = sent >= APPLICATIONS_QUORUM;
-    var appsWithIdentified = {};
-    identified.forEach(function (e) {
-      if (e.application_id) appsWithIdentified[e.application_id] = true;
-    });
-    var withoutTouches = (data.applications || []).filter(function (app) {
-      return !appsWithIdentified[app.application_id];
-    }).length;
+    var withoutTouches = getApplicationsWithoutTouchesCount();
 
     els.applicationsSummary.innerHTML =
       '<div class="dash-applications-summary__grid">' +
@@ -656,7 +752,7 @@
       '<p class="dash-kpi__value">' +
       esc(fmtInt(sent) + " из " + fmtInt(PLANNED_APPLICATIONS)) +
       "</p>" +
-      '<p class="dash-kpi__bench">Кворум для рейтинга: ' +
+      '<p class="dash-kpi__bench">Кворум: ' +
       fmtInt(APPLICATIONS_QUORUM) +
       (quorumMet
         ? ' <span class="dash-quorum-check" title="Кворум достигнут" aria-label="Кворум достигнут">✓</span>'
@@ -664,37 +760,17 @@
       "</p>" +
       "</article>" +
       '<article class="dash-kpi">' +
-      '<p class="dash-kpi__label">Заявок без касаний</p>' +
+      '<p class="dash-kpi__label">Заявок без касаний (любой канал)</p>' +
       '<p class="dash-kpi__value">' +
-      esc(fmtInt(withoutTouches)) +
+      esc(withoutTouches != null ? fmtInt(withoutTouches) : "—") +
       "</p>" +
       "</article>" +
       '<article class="dash-kpi">' +
-      '<p class="dash-kpi__label">Касаний всего</p>' +
+      '<p class="dash-kpi__label">' + esc(AVG_TOUCHES_PER_APP_LABEL) + "</p>" +
       '<p class="dash-kpi__value">' +
-      esc(fmtInt(identified.length)) +
+      esc(formatAvgTouchesPerApp()) +
       "</p>" +
-      '<p class="dash-kpi__bench">За 72 ч после заявки</p>' +
-      "</article>" +
-      '<article class="dash-kpi dash-kpi--channels">' +
-      '<p class="dash-kpi__label">Касания по каналам</p>' +
-      '<ul class="dash-channel-counts">' +
-      '<li><span>Звонки</span><strong class="mono">' +
-      fmtInt(channelCounts.call) +
-      "</strong></li>" +
-      '<li><span>SMS</span><strong class="mono">' +
-      fmtInt(channelCounts.sms) +
-      "</strong></li>" +
-      '<li><span>Max</span><strong class="mono">' +
-      fmtInt(channelCounts.max) +
-      "</strong></li>" +
-      '<li><span>WhatsApp</span><strong class="mono">' +
-      fmtInt(channelCounts.whatsapp) +
-      "</strong></li>" +
-      '<li><span>Telegram</span><strong class="mono">' +
-      fmtInt(channelCounts.telegram) +
-      "</strong></li>" +
-      "</ul></article></div>";
+      "</article></div>";
   }
 
   function buildApplicationOrderMap(applications) {
@@ -717,9 +793,7 @@
     var orderByAppId = buildApplicationOrderMap(data.applications);
     var rowsData = (data.applications || []).map(function (app) {
       var events = eventsByApp[app.application_id] || [];
-      var identifiedEvents = events.filter(function (e) {
-        return e.identified_status === "developer";
-      });
+      var identifiedEvents = events.filter(isTouchInRating);
       var channelCounts = channelCountsForEvents(identifiedEvents);
       return {
         app: app,
@@ -1065,9 +1139,9 @@
   function renderExecutiveSummary(d, m) {
     var lines = [];
     var speed = d.avg_call_response;
-    var marketSpeed = m && m.avg_response ? m.avg_response.mean : null;
+    var marketSpeed = m && m.avg_call_response ? m.avg_call_response.mean : null;
 
-    if (speed != null && marketSpeed != null && speed <= (m.avg_response.best || speed)) {
+    if (speed != null && marketSpeed != null && speed <= (m.avg_call_response.best || speed)) {
       lines.push(
         "Сильная сторона: медиана первого идентифицированного звонка — " +
           fmtDuration(speed) +
@@ -1087,13 +1161,13 @@
       );
     }
 
-    if (d.no_call_share != null && m && m.no_callback_share) {
-      if (d.no_call_share > m.no_callback_share.mean) {
+    if (d.no_call_share != null && m && m.no_call_share) {
+      if (d.no_call_share > m.no_call_share.mean) {
         lines.push(
           "Зона роста: " +
             fmtPct(d.no_call_share) +
             " заявок без идентифицированного звонка (рынок ~" +
-            fmtPct(m.no_callback_share.mean) +
+            fmtPct(m.no_call_share.mean) +
             ")."
         );
       } else {
@@ -1124,40 +1198,26 @@
       kpiCard(
         "Как быстро перезванивают?",
         d.avg_call_response != null ? fmtDuration(d.avg_call_response) : "—",
-        m && m.avg_response
-          ? "Рынок: " + fmtDuration(m.avg_response.mean) + " · лучшее: " + fmtDuration(m.avg_response.best)
+        m && m.avg_call_response
+          ? "Рынок: " +
+            fmtDuration(m.avg_call_response.mean) +
+            " · лучшее: " +
+            fmtDuration(m.avg_call_response.best)
           : "",
         compareSpeed(d.avg_call_response, m)
       ),
       kpiCard(
         "Заявки без идентифицированного звонка",
         d.no_call_share != null ? fmtPct(d.no_call_share) : "—",
-        m && m.no_callback_share ? "Рынок: " + fmtPct(m.no_callback_share.mean) : "",
+        m && m.no_call_share ? "Рынок: " + fmtPct(m.no_call_share.mean) : "",
         compareNoCall(d.no_call_share, m)
       ),
-      kpiCard(
-        "Касаний на отвеченную заявку",
-        d.avg_touches_per_responded_app != null ? fmtNum(d.avg_touches_per_responded_app) : "—",
-        "",
-        null
-      ),
-      kpiCard(
-        "Всего касаний за 72 часа",
-        d.total_touches != null ? fmtInt(d.total_touches) : "—",
-        "",
-        null
-      ),
+      kpiCard(AVG_TOUCHES_PER_APP_LABEL, formatAvgTouchesPerApp(), "", null),
       kpiCard(
         "Проникновение SMS/мессенджеров",
         d.messenger_penetration_share != null ? fmtPct(d.messenger_penetration_share) : "—",
         m && m.messengers ? "Рынок: " + fmtPct(m.messengers.mean) : "",
         compareMessengers(d.messenger_penetration_share, m)
-      ),
-      kpiCard(
-        "Отправлено заявок",
-        fmtInt(d.applications_sent),
-        "План методологии: до 21",
-        null
       ),
     ];
     els.kpiGrid.innerHTML = cards.join("");
@@ -1179,16 +1239,16 @@
   }
 
   function compareSpeed(company, m) {
-    if (company == null || !m || !m.avg_response) return "";
-    var mean = m.avg_response.mean;
+    if (company == null || !m || !m.avg_call_response) return "";
+    var mean = m.avg_call_response.mean;
     if (company < mean) return deltaTag("good", "Быстрее среднего рынка");
     if (company > mean) return deltaTag("bad", "Медленнее среднего рынка");
     return deltaTag("neutral", "На уровне рынка");
   }
 
   function compareNoCall(company, m) {
-    if (company == null || !m || !m.no_callback_share) return "";
-    var mean = m.no_callback_share.mean;
+    if (company == null || !m || !m.no_call_share) return "";
+    var mean = m.no_call_share.mean;
     if (company > mean) return deltaTag("bad", "Хуже среднего на " + Math.round(company - mean) + " п.п.");
     if (company < mean) return deltaTag("good", "Лучше среднего на " + Math.round(mean - company) + " п.п.");
     return deltaTag("neutral", "На уровне рынка");
@@ -1205,57 +1265,6 @@
     return '<span class="dash-kpi__delta dash-kpi__delta--' + kind + '">' + esc(text) + "</span>";
   }
 
-  function renderChannels(d) {
-    var ch = d.channel_share || {};
-    var channels = [
-      { key: "call", label: "Звонок" },
-      { key: "sms", label: "SMS" },
-      { key: "max", label: "Max" },
-      { key: "whatsapp", label: "WhatsApp" },
-      { key: "telegram", label: "Telegram" },
-    ];
-    els.channelChart.innerHTML =
-      "<h3>Доля заявок с контактом по каналу</h3>" +
-      channels
-        .map(function (c) {
-          var v = ch[c.key] || 0;
-          return (
-            '<div class="dash-bar-row">' +
-            "<span>" +
-            esc(c.label) +
-            "</span>" +
-            '<div class="dash-bar-row__track"><div class="dash-bar-row__fill" style="width:' +
-            v +
-            '%"></div></div>' +
-            '<span class="dash-bar-row__pct">' +
-            fmtPct(v) +
-            "</span></div>"
-          );
-        })
-        .join("");
-  }
-
-  function renderTouches(d) {
-    els.touchesBlock.innerHTML =
-      "<h3>Настойчивость контактов</h3>" +
-      '<div class="dash-touches-grid">' +
-      touchItem(fmtNum(d.avg_touches_per_responded_app), "Касаний на отвеченную заявку") +
-      touchItem(fmtInt(d.total_touches), "Всего касаний") +
-      touchItem(fmtInt(d.max_touches_per_app), "Макс. на одну заявку") +
-      touchItem(fmtNum(d.avg_recontacts), "Повторные касания (на все заявки)") +
-      "</div>";
-  }
-
-  function touchItem(val, label) {
-    return (
-      '<div class="dash-touches-item"><div class="dash-touches-item__val">' +
-      esc(val != null && val !== "NaN" ? String(val) : "—") +
-      '</div><div class="dash-touches-item__lbl">' +
-      esc(label) +
-      "</div></div>"
-    );
-  }
-
   function renderDiagnostics(d, m) {
     var cards = buildDiagnosticCards(d, m);
     if (!cards.length) {
@@ -1265,7 +1274,6 @@
         title: "Сильные показатели по агрегатам",
         body: "По текущим метрикам явных отставаний от рынка не видно. Обсудите удержание скорости, защиту от утечек и омниканальность как следующий шаг.",
         checks: ["Сверка заявок в CRM", "Мониторинг спама по заявкам"],
-        solution: "Противодействие утечкам · Оркестратор мессенджеров",
       });
     }
     els.diagnostics.innerHTML = cards
@@ -1292,9 +1300,7 @@
                 .join("") +
               "</ul>"
             : "") +
-          '<p class="dash-diag__solution">Интроверт: ' +
-          esc(c.solution) +
-          "</p></article>"
+          "</article>"
         );
       })
       .join("");
@@ -1303,7 +1309,7 @@
   function buildDiagnosticCards(d, m) {
     var cards = [];
 
-    if (d.avg_call_response != null && m && m.avg_response && d.avg_call_response > m.avg_response.mean) {
+    if (d.avg_call_response != null && m && m.avg_call_response && d.avg_call_response > m.avg_call_response.mean) {
       cards.push({
         tag: "risk",
         tagLabel: "Зона роста",
@@ -1312,18 +1318,17 @@
           "Медиана " +
           fmtDuration(d.avg_call_response) +
           " против " +
-          fmtDuration(m.avg_response.mean) +
+          fmtDuration(m.avg_call_response.mean) +
           " в среднем по рынку.",
         checks: [
           "Проверить маршрутизацию лидов в CRM",
           "Сверить время первого звонка в телефонии",
           "Исключить задержки из-за антиспама оператора",
         ],
-        solution: "amoCRM Enterprise · Повышение дозваниваемости АТС · AI-секретарь Matvey",
       });
     }
 
-    if (d.no_call_share != null && m && m.no_callback_share && d.no_call_share > m.no_callback_share.mean) {
+    if (d.no_call_share != null && m && m.no_call_share && d.no_call_share > m.no_call_share.mean) {
       var missed = Math.round(((d.no_call_share / 100) * (d.applications_sent || 0)));
       cards.push({
         tag: "risk",
@@ -1341,28 +1346,27 @@
           "Проверить статусы и причины недозвона",
           "Проверить блокировки антиспам-фильтрами",
         ],
-        solution: "amoCRM Enterprise · AI-секретарь Matvey · Повышение дозваниваемости АТС",
       });
     }
 
+    var avgTouchesPerApp = getAvgTouchesPerApp();
     if (
-      (d.avg_touches_per_responded_app || 0) < 2 &&
+      (avgTouchesPerApp || 0) < 2 &&
       d.no_call_share != null &&
       d.no_call_share < 50
     ) {
       cards.push({
         tag: "check",
         tagLabel: "Проверить",
-        title: "Мало повторных касаний после ответа",
+        title: "Мало повторных касаний",
         body:
           "В среднем " +
-          fmtNum(d.avg_touches_per_responded_app) +
-          " касаний на отвеченную заявку. При недозвоне клиент может не получить второй контакт.",
+          fmtNum(avgTouchesPerApp) +
+          " касаний на заявку. При недозвоне клиент может не получить второй контакт.",
         checks: [
           "Есть ли сценарий повторного звонка или SMS после недозвона",
           "Настроены ли задачи менеджерам в CRM",
         ],
-        solution: "AI-секретарь Matvey · Отдел реактивации",
       });
     }
 
@@ -1377,11 +1381,10 @@
           "Уходили ли SMS или сообщения в мессенджерах после заявки",
           "Импортируется ли переписка в CRM",
         ],
-        solution: "Оркестратор мессенджеров · Мобильное приложение для продавцов",
       });
     }
 
-    if (d.avg_call_response != null && m && m.avg_response && d.avg_call_response <= m.avg_response.best + 5) {
+    if (d.avg_call_response != null && m && m.avg_call_response && d.avg_call_response <= m.avg_call_response.best + 5) {
       cards.unshift({
         tag: "strength",
         tagLabel: "Сильная сторона",
@@ -1391,7 +1394,6 @@
           fmtDuration(d.avg_call_response) +
           " — на уровне лучших значений рынка. Стоит закрепить как внутренний стандарт.",
         checks: ["Зафиксировать SLA в CRM", "Контролировать скорость по сменам"],
-        solution: "Контроль качества переговоров · amoCRM Enterprise",
       });
     }
 
@@ -1405,27 +1407,9 @@
         "Оценить долю нецелевых контактов после тестовых заявок",
         "Проверить, не быстрее ли спамеры официального ответа",
       ],
-      solution: "Lead Leakage Audit · Противодействие утечкам",
     });
 
     return cards.slice(0, 5);
-  }
-
-  function renderCta(d, m) {
-    var parts = [];
-    if (d.no_call_share > (m && m.no_callback_share ? m.no_callback_share.mean : 35)) {
-      parts.push("аудит пути заявки от сайта до первого звонка");
-    }
-    if ((d.messenger_penetration_share || 0) < 10) {
-      parts.push("пилот омниканального сценария после недозвона");
-    }
-    if (!parts.length) {
-      parts.push("экспресс-разбор CRM и телефонии на заявках");
-    }
-    els.ctaText.textContent =
-      "Предложите клиенту: " +
-      parts.join(" и ") +
-      ". Следующий шаг — встреча с экспертом Интроверта и коммерческое предложение по релевантным решениям.";
   }
 
   function fmtNum(v) {

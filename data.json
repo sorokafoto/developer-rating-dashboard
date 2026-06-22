@@ -8,7 +8,7 @@
     "developers_count": 100,
     "applications_sent_total": 1980,
     "target_applications": 2100,
-    "generated_at": "2026-06-19T22:56:17.894Z"
+    "generated_at": "2026-06-22T16:35:33.741Z"
   },
   "market": {
     "sample_size": 74,
@@ -18,8 +18,16 @@
       "mean": 441,
       "best": 1
     },
+    "avg_call_response": {
+      "mean": 505,
+      "best": 1
+    },
     "no_callback_share": {
       "mean": 35,
+      "best": 5
+    },
+    "no_call_share": {
+      "mean": 38,
       "best": 5
     },
     "messengers": {

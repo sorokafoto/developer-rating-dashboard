@@ -19,16 +19,12 @@
 
     <header class="dash-header">
       <div class="wrap dash-header__inner">
-        <div class="dash-header__brand">
-          <span class="dash-header__eyebrow">Интроверт Системс</span>
-          <h1 class="dash-header__title">Дашборд расширенной аналитики</h1>
-        </div>
-        <div class="dash-header__actions" id="header-actions">
-          <div class="dash-control dash-control--select">
+        <h1 class="dash-header__title">Дашборд расширенной аналитики</h1>
+        <div class="dash-header__actions">
+          <div class="dash-control dash-control--select dash-control--period">
             <label class="dash-control__label" for="period-select">Период</label>
             <select id="period-select" aria-label="Период отчёта">
               <option value="2026-Q2" selected>II квартал 2026</option>
-              <option value="2026-Q4" disabled>IV квартал 2026 (скоро)</option>
             </select>
           </div>
         </div>
@@ -39,56 +35,34 @@
             <div class="dash-combobox" id="company-combobox">
               <div class="dash-combobox__control dash-control" id="combobox-control">
                 <label class="dash-combobox__label dash-control__label" for="company-search">Застройщик</label>
-              <div class="dash-combobox__field">
-                <div class="dash-combobox__chips" id="search-chips" aria-live="polite"></div>
-                <input
-                  type="text"
-                  id="company-search"
-                  class="dash-combobox__input"
-                  role="combobox"
-                  aria-autocomplete="list"
-                  aria-expanded="false"
-                  aria-controls="search-results"
-                  autocomplete="off"
-                  spellcheck="false"
-                />
+                <div class="dash-combobox__field">
+                  <div class="dash-combobox__chips" id="search-chips" aria-live="polite"></div>
+                  <input
+                    type="text"
+                    id="company-search"
+                    class="dash-combobox__input"
+                    role="combobox"
+                    aria-autocomplete="list"
+                    aria-expanded="false"
+                    aria-controls="search-results"
+                    autocomplete="off"
+                    spellcheck="false"
+                    placeholder="Выберите компанию"
+                  />
+                </div>
+                <div class="dash-combobox__actions">
+                  <button type="button" class="dash-combobox__action" id="search-clear" aria-label="Очистить" hidden>
+                    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.3 5.71a1 1 0 0 0-1.41 0L12 10.59 7.11 5.7A1 1 0 0 0 5.7 7.11L10.59 12l-4.9 4.89a1 1 0 1 0 1.41 1.42L12 13.41l4.89 4.9a1 1 0 0 0 1.42-1.42L13.41 12l4.9-4.89a1 1 0 0 0-.01-1.4z"/></svg>
+                  </button>
+                  <button type="button" class="dash-combobox__action" id="search-toggle" aria-label="Показать список" aria-expanded="false">
+                    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5H7z"/></svg>
+                  </button>
+                </div>
               </div>
-              <div class="dash-combobox__actions">
-                <button type="button" class="dash-combobox__action" id="search-clear" aria-label="Очистить" hidden>
-                  <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.3 5.71a1 1 0 0 0-1.41 0L12 10.59 7.11 5.7A1 1 0 0 0 5.7 7.11L10.59 12l-4.9 4.89a1 1 0 1 0 1.41 1.42L12 13.41l4.89 4.9a1 1 0 0 0 1.42-1.42L13.41 12l4.9-4.89a1 1 0 0 0-.01-1.4z"/></svg>
-                </button>
-                <button type="button" class="dash-combobox__action" id="search-toggle" aria-label="Показать список" aria-expanded="false">
-                  <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5H7z"/></svg>
-                </button>
-              </div>
+              <ul class="dash-combobox__menu" id="search-results" role="listbox" aria-label="Застройщики" hidden></ul>
             </div>
-            <ul class="dash-combobox__menu" id="search-results" role="listbox" aria-label="Застройщики" hidden></ul>
-          </div>
             <p class="dash-empty" id="search-empty" hidden>Нет в рейтинге. Проверьте написание или выберите из списка.</p>
           </section>
-          <details class="dash-phones dash-control" id="phones-panel" hidden>
-            <summary class="dash-phones__summary dash-control__trigger" id="phones-summary">
-              <span class="dash-control__label">Телефонные номера</span>
-            </summary>
-            <div class="dash-phones__body">
-              <div class="dash-phones__grid">
-                <div class="dash-phones__col">
-                  <h3 class="dash-phones__col-title">Заявки <span id="phones-app-count"></span></h3>
-                  <ul class="dash-phones__list" id="phones-application"></ul>
-                </div>
-                <div class="dash-phones__col dash-phones__col--verify">
-                  <h3 class="dash-phones__col-title">Проверочный <span id="phones-verify-count"></span></h3>
-                  <ul class="dash-phones__list" id="phones-verification"></ul>
-                </div>
-              </div>
-              <div class="dash-phones__actions">
-                <button type="button" class="dash-btn dash-btn--primary" id="btn-copy-phones">
-                  Скопировать
-                </button>
-                <p class="dash-phones__footer muted" id="phones-copy-status" aria-live="polite"></p>
-              </div>
-            </div>
-          </details>
         </div>
       </div>
     </header>
@@ -109,15 +83,14 @@
 
         <nav class="dash-tabs" role="tablist" aria-label="Разделы дашборда">
           <button type="button" class="dash-tabs__btn" role="tab" data-tab="overview" aria-selected="true">Обзор</button>
-          <button type="button" class="dash-tabs__btn" role="tab" data-tab="channels">Каналы</button>
           <button type="button" class="dash-tabs__btn" role="tab" data-tab="applications">Заявки</button>
-          <button type="button" class="dash-tabs__btn" role="tab" data-tab="next">Что дальше</button>
         </nav>
 
         <div class="dash-tabpanels">
           <div class="dash-tabpanel" id="tab-overview" role="tabpanel">
             <div class="dash-summary" id="exec-summary"></div>
             <div class="dash-kpi-grid" id="kpi-grid"></div>
+            <div class="dash-diagnostics" id="diagnostics"></div>
           </div>
 
           <div class="dash-tabpanel" id="tab-applications" role="tabpanel" hidden>
@@ -128,18 +101,6 @@
             </div>
           </div>
 
-          <div class="dash-tabpanel" id="tab-channels" role="tabpanel" hidden>
-            <div class="dash-chart" id="channel-chart"></div>
-            <div class="dash-touches" id="touches-block"></div>
-          </div>
-
-          <div class="dash-tabpanel" id="tab-next" role="tabpanel" hidden>
-            <div class="dash-diagnostics" id="diagnostics"></div>
-            <div class="dash-cta">
-              <h3 class="dash-cta__title">Следующий шаг</h3>
-              <p class="dash-cta__text" id="cta-text"></p>
-            </div>
-          </div>
         </div>
       </section>
     </main>
@@ -153,9 +114,37 @@
         <p class="dash-disclaimer muted" id="disclaimer" role="note">
           В метрики попадают только проверенные контакты (касания), по которым точно известно, какой застройщик ответил,
           по какому каналу и за какое время. Неидентифицированные контакты не засчитываются как ответ компании.
+          Скорость перезвона — медиана до первого идентифицированного звонка; SMS и мессенджеры в эту метрику не входят.
         </p>
       </div>
     </footer>
+
+    <div class="dash-modal-backdrop" id="phones-modal" hidden role="dialog" aria-modal="true" aria-labelledby="phones-modal-title">
+      <div class="dash-modal">
+        <div class="dash-modal__head">
+          <div class="dash-modal__head-main">
+            <h2 class="dash-modal__title" id="phones-modal-title">Телефонные номера</h2>
+            <button type="button" class="dash-btn dash-btn--primary dash-btn--compact" id="btn-copy-phones">Скопировать</button>
+          </div>
+          <button type="button" class="dash-modal__close" id="phones-modal-close" aria-label="Закрыть">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.3 5.71a1 1 0 0 0-1.41 0L12 10.59 7.11 5.7A1 1 0 0 0 5.7 7.11L10.59 12l-4.9 4.89a1 1 0 1 0 1.41 1.42L12 13.41l4.89 4.9a1 1 0 0 0 1.42-1.42L13.41 12l4.9-4.89a1 1 0 0 0-.01-1.4z"/></svg>
+          </button>
+        </div>
+        <p class="dash-modal__copy-status muted" id="phones-copy-status" aria-live="polite"></p>
+        <div class="dash-modal__body">
+          <div class="dash-phones__grid">
+            <div class="dash-phones__col">
+              <h3 class="dash-phones__col-title">Заявки <span id="phones-app-count"></span></h3>
+              <ul class="dash-phones__list dash-phones__list--multi" id="phones-application"></ul>
+            </div>
+            <div class="dash-phones__col dash-phones__col--verify">
+              <h3 class="dash-phones__col-title">Проверочный <span id="phones-verify-count"></span></h3>
+              <ul class="dash-phones__list" id="phones-verification"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="config.js"></script>
     <script src="data.js"></script>
