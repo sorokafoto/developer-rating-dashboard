@@ -23,7 +23,7 @@
     query: "",
     company: null,
     tab: "overview",
-    expandedAppId: null,
+    expandedAppIds: {},
     appSort: { key: "submitted_at", dir: "asc" },
     searchOpen: false,
     highlightIndex: -1,
@@ -291,7 +291,7 @@
       lines.push(formatPhone(ph));
     });
     lines.push("");
-    lines.push("Проверочный номер — с него мы звонили, чтобы идентифицировать ответ застройщика:");
+    lines.push("Проверочный номер — с него мы звонили, чтобы проверить ответ застройщика:");
     var verify = p.verification_phones || (p.verification_phone ? [p.verification_phone] : []);
     verify.forEach(function (ph) {
       lines.push(formatPhone(ph));
@@ -420,7 +420,7 @@
     state.company = null;
     state.query = "";
     state.companyEvents = null;
-    state.expandedAppId = null;
+    state.expandedAppIds = {};
     if (els.search) els.search.value = "";
     if (els.panelPresent) els.panelPresent.hidden = true;
     renderSearchChip();
@@ -512,7 +512,7 @@
     state.companyEventsRequestId = requestId;
     state.companyEvents = null;
     state.companyEventsLoading = true;
-    state.expandedAppId = null;
+    state.expandedAppIds = {};
     renderCompanyDetailTabs();
 
     function tryFetch(index) {
@@ -744,6 +744,7 @@
     var sent = (data.applications || []).length;
     var quorumMet = sent >= APPLICATIONS_QUORUM;
     var withoutTouches = getApplicationsWithoutTouchesCount();
+    var channelCounts = channelCountsForEvents((data.events || []).filter(isTouchInRating));
 
     els.applicationsSummary.innerHTML =
       '<div class="dash-applications-summary__grid">' +
@@ -770,7 +771,26 @@
       '<p class="dash-kpi__value">' +
       esc(formatAvgTouchesPerApp()) +
       "</p>" +
-      "</article></div>";
+      "</article>" +
+      '<article class="dash-kpi dash-kpi--channels">' +
+      '<p class="dash-kpi__label">Касания по каналам</p>' +
+      '<ul class="dash-channel-counts">' +
+      '<li><span>Звонки</span><strong class="mono">' +
+      fmtInt(channelCounts.call) +
+      "</strong></li>" +
+      '<li><span>SMS</span><strong class="mono">' +
+      fmtInt(channelCounts.sms) +
+      "</strong></li>" +
+      '<li><span>Max</span><strong class="mono">' +
+      fmtInt(channelCounts.max) +
+      "</strong></li>" +
+      '<li><span>WhatsApp</span><strong class="mono">' +
+      fmtInt(channelCounts.whatsapp) +
+      "</strong></li>" +
+      '<li><span>Telegram</span><strong class="mono">' +
+      fmtInt(channelCounts.telegram) +
+      "</strong></li>" +
+      "</ul></article></div>";
   }
 
   function buildApplicationOrderMap(applications) {
@@ -818,7 +838,7 @@
         var app = row.app;
         var events = row.events;
         var counts = row.channelCounts;
-        var expanded = state.expandedAppId === app.application_id;
+        var expanded = !!state.expandedAppIds[app.application_id];
         var main =
           '<tr class="' +
           (events.length ? "" : "dash-table__row--empty") +
@@ -907,7 +927,7 @@
 
     els.applicationsTable.innerHTML =
       '<div class="dash-table-wrap"><table class="dash-table"><thead><tr>' +
-      sortTh("has_events", "+", "dash-table__expand-th") +
+      '<th class="dash-table__expand-th" aria-hidden="true"></th>' +
       sortTh("order", "№ заявки") +
       sortTh("submitted_at", "Отправлена") +
       sortTh("day", "День") +
@@ -939,7 +959,8 @@
     els.applicationsTable.querySelectorAll("[data-toggle-app]").forEach(function (btn) {
       btn.addEventListener("click", function () {
         var id = btn.getAttribute("data-toggle-app");
-        state.expandedAppId = state.expandedAppId === id ? null : id;
+        if (state.expandedAppIds[id]) delete state.expandedAppIds[id];
+        else state.expandedAppIds[id] = true;
         renderApplicationsTable(data);
       });
     });
@@ -966,14 +987,13 @@
     if (key === "day") return row.dayRank;
     if (key === "slot") return row.slotRank;
     if (key === "phone_number") return applicationPhone(row.app);
-    if (key === "has_events") return row.hasEvents;
     if (key === "total") return row.totalIdentified;
     if (row.channelCounts && row.channelCounts[key] != null) return row.channelCounts[key];
     return row.order;
   }
 
   function isNumericSort(key) {
-    return key === "has_events" || key === "call" || key === "sms" || key === "max" || key === "whatsapp" || key === "telegram" || key === "total";
+    return key === "call" || key === "sms" || key === "max" || key === "whatsapp" || key === "telegram" || key === "total";
   }
 
   function sortTh(key, labelHtml, className) {
@@ -1143,13 +1163,13 @@
 
     if (speed != null && marketSpeed != null && speed <= (m.avg_call_response.best || speed)) {
       lines.push(
-        "Сильная сторона: медиана первого идентифицированного звонка — " +
+        "Сильная сторона: медиана первого звонка — " +
           fmtDuration(speed) +
           " (на уровне лучшего значения рынка)."
       );
     } else if (speed != null && marketSpeed != null && speed < marketSpeed) {
       lines.push(
-        "Скорость первого идентифицированного звонка — " +
+        "Скорость первого звонка — " +
           fmtDuration(speed) +
           ", быстрее среднего рынка (" +
           fmtDuration(marketSpeed) +
@@ -1157,7 +1177,7 @@
       );
     } else if (speed != null) {
       lines.push(
-        "Медиана первого идентифицированного звонка — " + fmtDuration(speed) + "."
+        "Медиана первого звонка — " + fmtDuration(speed) + "."
       );
     }
 
@@ -1166,22 +1186,22 @@
         lines.push(
           "Зона роста: " +
             fmtPct(d.no_call_share) +
-            " заявок без идентифицированного звонка (рынок ~" +
+            " заявок без перезвона (рынок ~" +
             fmtPct(m.no_call_share.mean) +
             ")."
         );
       } else {
         lines.push(
-          "Покрытие звонком: " +
+          "Покрытие перезвоном: " +
             fmtPct(100 - d.no_call_share) +
-            " заявок с идентифицированным звонком."
+            " заявок со звонком."
         );
       }
     }
 
     if ((d.messenger_penetration_share || 0) === 0) {
       lines.push(
-        "Идентифицированных SMS или мессенджеров по отправленным заявкам не найдено."
+        "SMS или мессенджеров по отправленным заявкам не найдено."
       );
     }
 
@@ -1207,7 +1227,7 @@
         compareSpeed(d.avg_call_response, m)
       ),
       kpiCard(
-        "Заявки без идентифицированного звонка",
+        "Заявки без звонка",
         d.no_call_share != null ? fmtPct(d.no_call_share) : "—",
         m && m.no_call_share ? "Рынок: " + fmtPct(m.no_call_share.mean) : "",
         compareNoCall(d.no_call_share, m)
@@ -1313,7 +1333,7 @@
       cards.push({
         tag: "risk",
         tagLabel: "Зона роста",
-        title: "Медленный первый идентифицированный звонок",
+        title: "Медленный первый звонок",
         body:
           "Медиана " +
           fmtDuration(d.avg_call_response) +
@@ -1333,14 +1353,14 @@
       cards.push({
         tag: "risk",
         tagLabel: "Зона роста",
-        title: "Низкое покрытие идентифицированным звонком",
+        title: "Низкое покрытие звонком",
         body:
           fmtPct(d.no_call_share) +
-          " заявок без идентифицированного звонка (~" +
+          " заявок без перезвона (~" +
           missed +
           " из " +
           fmtInt(d.applications_sent) +
-          "). Это может быть и отсутствие звонка, и проблема идентификации.",
+          "). Это может быть отсутствие перезвона или звонок не засчитан по правилам рейтинга.",
         checks: [
           "Найти наши заявки в CRM",
           "Проверить статусы и причины недозвона",
@@ -1374,9 +1394,9 @@
       cards.push({
         tag: "check",
         tagLabel: "Проверить",
-        title: "Не видно идентифицированных SMS и мессенджеров",
+        title: "Не видно SMS и мессенджеров",
         body:
-          "По заявкам не зафиксировано идентифицированных сообщений в SMS или мессенджерах",
+          "По заявкам не зафиксировано сообщений в SMS или мессенджерах",
         checks: [
           "Уходили ли SMS или сообщения в мессенджерах после заявки",
           "Импортируется ли переписка в CRM",
@@ -1388,7 +1408,7 @@
       cards.unshift({
         tag: "strength",
         tagLabel: "Сильная сторона",
-        title: "Высокая скорость первого идентифицированного звонка",
+        title: "Высокая скорость первого звонка",
         body:
           "Медиана " +
           fmtDuration(d.avg_call_response) +
@@ -1402,7 +1422,7 @@
       tagLabel: "Рынок",
       title: "Риск утечек и спама по заявкам",
       body:
-        "На рынке значительная доля входящих контактов — спам или неидентифицированные звонки. Для доказательной проверки утечек нужен отдельный аудит с tracking numbers, а не сводка в рейтинге.",
+        "На рынке значительная доля входящих контактов — спам или чужие звонки. Для доказательной проверки утечек нужен отдельный аудит с tracking numbers, а не сводка в рейтинге.",
       checks: [
         "Оценить долю нецелевых контактов после тестовых заявок",
         "Проверить, не быстрее ли спамеры официального ответа",
