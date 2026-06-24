@@ -5,7 +5,7 @@
   "applications": [
     {
       "application_id": "APP-1-021",
-      "submitted_at": "2026-06-02T10:09:59.999Z",
+      "submitted_at": "2026-06-02T07:09:59.000Z",
       "time_slot": "morning",
       "day_of_week": "tuesday",
       "got_identified_call": false,
@@ -13,7 +13,7 @@
     },
     {
       "application_id": "APP-1-055",
-      "submitted_at": "2026-06-02T13:38:59.999Z",
+      "submitted_at": "2026-06-02T10:38:59.000Z",
       "time_slot": "afternoon",
       "day_of_week": "tuesday",
       "got_identified_call": false,
@@ -21,7 +21,7 @@
     },
     {
       "application_id": "APP-1-089",
-      "submitted_at": "2026-06-02T22:57:59.999Z",
+      "submitted_at": "2026-06-02T19:57:59.000Z",
       "time_slot": "evening",
       "day_of_week": "tuesday",
       "got_identified_call": false,
@@ -29,7 +29,7 @@
     },
     {
       "application_id": "APP-1-123",
-      "submitted_at": "2026-06-03T10:02:59.999Z",
+      "submitted_at": "2026-06-03T07:02:59.000Z",
       "time_slot": "morning",
       "day_of_week": "wednesday",
       "got_identified_call": false,
@@ -37,7 +37,7 @@
     },
     {
       "application_id": "APP-1-157",
-      "submitted_at": "2026-06-03T13:47:00.000Z",
+      "submitted_at": "2026-06-03T10:47:00.000Z",
       "time_slot": "afternoon",
       "day_of_week": "wednesday",
       "got_identified_call": true,
@@ -45,7 +45,7 @@
     },
     {
       "application_id": "APP-1-191",
-      "submitted_at": "2026-06-03T20:58:00.000Z",
+      "submitted_at": "2026-06-03T17:58:00.000Z",
       "time_slot": "evening",
       "day_of_week": "wednesday",
       "got_identified_call": true,
@@ -53,7 +53,7 @@
     },
     {
       "application_id": "APP-1-225",
-      "submitted_at": "2026-06-04T10:05:59.999Z",
+      "submitted_at": "2026-06-04T07:05:59.000Z",
       "time_slot": "morning",
       "day_of_week": "thursday",
       "got_identified_call": false,
@@ -61,7 +61,7 @@
     },
     {
       "application_id": "APP-1-259",
-      "submitted_at": "2026-06-04T14:08:59.999Z",
+      "submitted_at": "2026-06-04T11:08:59.000Z",
       "time_slot": "afternoon",
       "day_of_week": "thursday",
       "got_identified_call": false,
@@ -69,7 +69,7 @@
     },
     {
       "application_id": "APP-1-293",
-      "submitted_at": "2026-06-04T20:29:00.000Z",
+      "submitted_at": "2026-06-04T17:29:00.000Z",
       "time_slot": "evening",
       "day_of_week": "thursday",
       "got_identified_call": false,
@@ -77,7 +77,7 @@
     },
     {
       "application_id": "APP-1-327",
-      "submitted_at": "2026-06-05T10:33:00.000Z",
+      "submitted_at": "2026-06-05T07:33:00.000Z",
       "time_slot": "morning",
       "day_of_week": "friday",
       "got_identified_call": false,
@@ -85,7 +85,7 @@
     },
     {
       "application_id": "APP-1-361",
-      "submitted_at": "2026-06-05T13:36:00.000Z",
+      "submitted_at": "2026-06-05T10:36:00.000Z",
       "time_slot": "afternoon",
       "day_of_week": "friday",
       "got_identified_call": false,
@@ -93,7 +93,7 @@
     },
     {
       "application_id": "APP-1-395",
-      "submitted_at": "2026-06-05T19:53:00.000Z",
+      "submitted_at": "2026-06-05T16:53:00.000Z",
       "time_slot": "evening",
       "day_of_week": "friday",
       "got_identified_call": false,
@@ -101,7 +101,7 @@
     },
     {
       "application_id": "APP-1-429",
-      "submitted_at": "2026-06-06T12:17:59.999Z",
+      "submitted_at": "2026-06-06T09:17:59.000Z",
       "time_slot": "morning",
       "day_of_week": "saturday",
       "got_identified_call": false,
@@ -109,7 +109,7 @@
     },
     {
       "application_id": "APP-1-463",
-      "submitted_at": "2026-06-06T19:37:00.000Z",
+      "submitted_at": "2026-06-06T16:37:00.000Z",
       "time_slot": "afternoon",
       "day_of_week": "saturday",
       "got_identified_call": false,
@@ -117,7 +117,7 @@
     },
     {
       "application_id": "APP-1-497",
-      "submitted_at": "2026-06-06T23:01:00.000Z",
+      "submitted_at": "2026-06-06T20:01:00.000Z",
       "time_slot": "evening",
       "day_of_week": "saturday",
       "got_identified_call": true,
@@ -125,7 +125,7 @@
     },
     {
       "application_id": "APP-1-531",
-      "submitted_at": "2026-06-07T11:16:59.999Z",
+      "submitted_at": "2026-06-07T08:16:59.000Z",
       "time_slot": "morning",
       "day_of_week": "sunday",
       "got_identified_call": true,
@@ -133,7 +133,7 @@
     },
     {
       "application_id": "APP-1-565",
-      "submitted_at": "2026-06-07T16:36:00.000Z",
+      "submitted_at": "2026-06-07T13:36:00.000Z",
       "time_slot": "afternoon",
       "day_of_week": "sunday",
       "got_identified_call": true,
@@ -141,7 +141,7 @@
     },
     {
       "application_id": "APP-1-599",
-      "submitted_at": "2026-06-07T00:34:59.999Z",
+      "submitted_at": "2026-06-06T21:34:59.000Z",
       "time_slot": "evening",
       "day_of_week": "sunday",
       "got_identified_call": true,
@@ -149,7 +149,7 @@
     },
     {
       "application_id": "APP-1-633",
-      "submitted_at": "2026-06-08T11:25:00.000Z",
+      "submitted_at": "2026-06-08T08:25:00.000Z",
       "time_slot": "morning",
       "day_of_week": "monday",
       "got_identified_call": true,
@@ -157,7 +157,7 @@
     },
     {
       "application_id": "APP-1-667",
-      "submitted_at": "2026-06-08T14:38:00.000Z",
+      "submitted_at": "2026-06-08T11:38:00.000Z",
       "time_slot": "afternoon",
       "day_of_week": "monday",
       "got_identified_call": true,
@@ -165,7 +165,7 @@
     },
     {
       "application_id": "APP-1-701",
-      "submitted_at": "2026-06-08T22:57:00.000Z",
+      "submitted_at": "2026-06-08T19:57:00.000Z",
       "time_slot": "evening",
       "day_of_week": "monday",
       "got_identified_call": false,
@@ -187,7 +187,7 @@
     {
       "event_id": "E-SC-0378",
       "application_id": "APP-1-565",
-      "event_at": "08.06.2026 2:43",
+      "event_at": "2026-06-07T23:43:00.000Z",
       "minutes_since_application": 607,
       "channel": "sms",
       "from_phone": "strana",
@@ -220,7 +220,7 @@
     {
       "event_id": "E-SC-0381",
       "application_id": "APP-1-191",
-      "event_at": "04.06.2026 9:02",
+      "event_at": "2026-06-04T06:02:00.000Z",
       "minutes_since_application": 724,
       "channel": "sms",
       "from_phone": "strana.com",
@@ -253,7 +253,7 @@
     {
       "event_id": "E-SC-0384",
       "application_id": "APP-1-293",
-      "event_at": "05.06.2026 7:46",
+      "event_at": "2026-06-05T04:46:00.000Z",
       "minutes_since_application": 677,
       "channel": "sms",
       "from_phone": "strana.com",
@@ -264,7 +264,7 @@
     {
       "event_id": "E-SC-0385",
       "application_id": "APP-1-157",
-      "event_at": "05.06.2026 8:33",
+      "event_at": "2026-06-05T05:33:00.000Z",
       "minutes_since_application": 2566,
       "channel": "sms",
       "from_phone": "strana.com",
@@ -363,7 +363,7 @@
     {
       "event_id": "E-SC-0394",
       "application_id": "APP-1-327",
-      "event_at": "06.06.2026 3:50",
+      "event_at": "2026-06-06T00:50:00.000Z",
       "minutes_since_application": 1037,
       "channel": "sms",
       "from_phone": "strana.com",
@@ -374,7 +374,7 @@
     {
       "event_id": "E-SC-0395",
       "application_id": "APP-1-327",
-      "event_at": "06.06.2026 9:51",
+      "event_at": "2026-06-06T06:51:00.000Z",
       "minutes_since_application": 1398,
       "channel": "sms",
       "from_phone": "strana.com",
@@ -396,7 +396,7 @@
     {
       "event_id": "E-SC-0397",
       "application_id": "APP-1-429",
-      "event_at": "07.06.2026 7:26",
+      "event_at": "2026-06-07T04:26:00.000Z",
       "minutes_since_application": 1148,
       "channel": "sms",
       "from_phone": "strana.com",
@@ -429,7 +429,7 @@
     {
       "event_id": "E-SC-0400",
       "application_id": "APP-1-565",
-      "event_at": "08.06.2026 0:36",
+      "event_at": "2026-06-07T21:36:00.000Z",
       "minutes_since_application": 480,
       "channel": "sms",
       "from_phone": "strana.com",
@@ -440,7 +440,7 @@
     {
       "event_id": "E-SC-0401",
       "application_id": "APP-1-565",
-      "event_at": "08.06.2026 7:19",
+      "event_at": "2026-06-08T04:19:00.000Z",
       "minutes_since_application": 883,
       "channel": "sms",
       "from_phone": "strana.com",
@@ -471,7 +471,7 @@
       "sms_mark": "strana.com"
     },
     {
-      "event_id": "E-SC-0798",
+      "event_id": "E-SC-0800",
       "application_id": "APP-1-157",
       "event_at": "2026-06-03T11:18:00.000Z",
       "minutes_since_application": 31,
@@ -481,7 +481,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-0836",
+      "event_id": "E-SC-0838",
       "application_id": "APP-1-157",
       "event_at": "2026-06-03T12:14:00.000Z",
       "minutes_since_application": 87,
@@ -491,9 +491,9 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-0951",
+      "event_id": "E-SC-0953",
       "application_id": "APP-1-157",
-      "event_at": "04.06.2026 8:58",
+      "event_at": "2026-06-04T05:58:00.000Z",
       "minutes_since_application": 1151,
       "channel": "call",
       "from_phone": "+7 (495) 445-02-70",
@@ -501,7 +501,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-1080",
+      "event_id": "E-SC-1082",
       "application_id": "APP-1-191",
       "event_at": "2026-06-04T08:08:00.000Z",
       "minutes_since_application": 850,
@@ -511,7 +511,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-1149",
+      "event_id": "E-SC-1151",
       "application_id": "APP-1-157",
       "event_at": "2026-06-04T10:03:00.000Z",
       "minutes_since_application": 1396,
@@ -521,7 +521,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-1219",
+      "event_id": "E-SC-1221",
       "application_id": "APP-1-191",
       "event_at": "2026-06-04T11:19:00.000Z",
       "minutes_since_application": 1041,
@@ -531,7 +531,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-1293",
+      "event_id": "E-SC-1295",
       "application_id": "APP-1-157",
       "event_at": "2026-06-04T13:28:00.000Z",
       "minutes_since_application": 1601,
@@ -541,7 +541,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-1319",
+      "event_id": "E-SC-1323",
       "application_id": "APP-1-191",
       "event_at": "2026-06-04T14:27:00.000Z",
       "minutes_since_application": 1229,
@@ -551,9 +551,9 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-1390",
+      "event_id": "E-SC-1395",
       "application_id": "APP-1-157",
-      "event_at": "05.06.2026 8:32",
+      "event_at": "2026-06-05T05:32:00.000Z",
       "minutes_since_application": 2565,
       "channel": "call",
       "from_phone": "+7 (495) 445-02-70",
@@ -561,7 +561,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-1531",
+      "event_id": "E-SC-1536",
       "application_id": "APP-1-191",
       "event_at": "2026-06-05T07:39:00.000Z",
       "minutes_since_application": 2261,
@@ -571,7 +571,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-1686",
+      "event_id": "E-SC-1691",
       "application_id": "APP-1-191",
       "event_at": "2026-06-05T11:08:00.000Z",
       "minutes_since_application": 2470,
@@ -583,7 +583,7 @@
     {
       "event_id": "events_sms_calls-3990",
       "application_id": "",
-      "event_at": "07.06.2026 7:10",
+      "event_at": "2026-06-07T04:10:00.000Z",
       "minutes_since_application": null,
       "channel": "call",
       "from_phone": "+7 (495) 445-02-70",
@@ -591,7 +591,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2154",
+      "event_id": "E-SC-2169",
       "application_id": "APP-1-497",
       "event_at": "2026-06-07T08:21:00.000Z",
       "minutes_since_application": 740,
@@ -601,7 +601,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2188",
+      "event_id": "E-SC-2206",
       "application_id": "APP-1-531",
       "event_at": "2026-06-07T09:33:00.000Z",
       "minutes_since_application": 76,
@@ -611,7 +611,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2202",
+      "event_id": "E-SC-2220",
       "application_id": "APP-1-497",
       "event_at": "2026-06-07T10:16:00.000Z",
       "minutes_since_application": 855,
@@ -621,7 +621,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2272",
+      "event_id": "E-SC-2291",
       "application_id": "APP-1-531",
       "event_at": "2026-06-07T12:53:00.000Z",
       "minutes_since_application": 276,
@@ -631,7 +631,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2321",
+      "event_id": "E-SC-2340",
       "application_id": "APP-1-497",
       "event_at": "2026-06-07T14:28:00.000Z",
       "minutes_since_application": 1107,
@@ -641,7 +641,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2333",
+      "event_id": "E-SC-2352",
       "application_id": "APP-1-599",
       "event_at": "2026-06-07T14:52:00.000Z",
       "minutes_since_application": 1037,
@@ -651,9 +651,9 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2374",
+      "event_id": "E-SC-2393",
       "application_id": "APP-1-565",
-      "event_at": "08.06.2026 7:18",
+      "event_at": "2026-06-08T04:18:00.000Z",
       "minutes_since_application": 882,
       "channel": "call",
       "from_phone": "+7 (495) 445-02-70",
@@ -661,9 +661,9 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2384",
+      "event_id": "E-SC-2403",
       "application_id": "APP-1-599",
-      "event_at": "08.06.2026 8:17",
+      "event_at": "2026-06-08T05:17:00.000Z",
       "minutes_since_application": 1902,
       "channel": "call",
       "from_phone": "+7 (495) 445-02-70",
@@ -671,9 +671,9 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2386",
+      "event_id": "E-SC-2405",
       "application_id": "APP-1-497",
-      "event_at": "08.06.2026 8:19",
+      "event_at": "2026-06-08T05:19:00.000Z",
       "minutes_since_application": 1998,
       "channel": "call",
       "from_phone": "+7 (495) 445-02-70",
@@ -681,9 +681,9 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2388",
+      "event_id": "E-SC-2407",
       "application_id": "APP-1-531",
-      "event_at": "08.06.2026 8:23",
+      "event_at": "2026-06-08T05:23:00.000Z",
       "minutes_since_application": 1266,
       "channel": "call",
       "from_phone": "+7 (495) 445-02-70",
@@ -691,9 +691,9 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2451",
+      "event_id": "E-SC-2470",
       "application_id": "APP-1-565",
-      "event_at": "08.06.2026 9:22",
+      "event_at": "2026-06-08T06:22:00.000Z",
       "minutes_since_application": 1006,
       "channel": "call",
       "from_phone": "+7 (495) 445-02-70",
@@ -701,7 +701,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2590",
+      "event_id": "E-SC-2609",
       "application_id": "APP-1-633",
       "event_at": "2026-06-08T08:41:00.000Z",
       "minutes_since_application": 16,
@@ -711,7 +711,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2593",
+      "event_id": "E-SC-2612",
       "application_id": "APP-1-599",
       "event_at": "2026-06-08T08:44:00.000Z",
       "minutes_since_application": 2109,
@@ -721,7 +721,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2595",
+      "event_id": "E-SC-2614",
       "application_id": "APP-1-531",
       "event_at": "2026-06-08T08:47:00.000Z",
       "minutes_since_application": 1470,
@@ -731,7 +731,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2619",
+      "event_id": "E-SC-2638",
       "application_id": "APP-1-497",
       "event_at": "2026-06-08T09:21:00.000Z",
       "minutes_since_application": 2240,
@@ -741,7 +741,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2644",
+      "event_id": "E-SC-2663",
       "application_id": "APP-1-565",
       "event_at": "2026-06-08T10:04:00.000Z",
       "minutes_since_application": 1228,
@@ -751,7 +751,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2681",
+      "event_id": "E-SC-2700",
       "application_id": "APP-1-633",
       "event_at": "2026-06-08T10:56:00.000Z",
       "minutes_since_application": 151,
@@ -761,7 +761,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2716",
+      "event_id": "E-SC-2735",
       "application_id": "APP-1-667",
       "event_at": "2026-06-08T11:42:00.000Z",
       "minutes_since_application": 4,
@@ -771,7 +771,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2749",
+      "event_id": "E-SC-2768",
       "application_id": "APP-1-497",
       "event_at": "2026-06-08T12:35:00.000Z",
       "minutes_since_application": 2434,
@@ -781,7 +781,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2782",
+      "event_id": "E-SC-2801",
       "application_id": "APP-1-599",
       "event_at": "2026-06-08T13:42:00.000Z",
       "minutes_since_application": 2407,
@@ -791,7 +791,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2794",
+      "event_id": "E-SC-2813",
       "application_id": "APP-1-667",
       "event_at": "2026-06-08T14:02:00.000Z",
       "minutes_since_application": 144,
@@ -801,7 +801,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2795",
+      "event_id": "E-SC-2814",
       "application_id": "APP-1-565",
       "event_at": "2026-06-08T14:03:00.000Z",
       "minutes_since_application": 1467,
@@ -811,7 +811,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2808",
+      "event_id": "E-SC-2827",
       "application_id": "APP-1-633",
       "event_at": "2026-06-08T14:17:00.000Z",
       "minutes_since_application": 352,
@@ -823,7 +823,7 @@
     {
       "event_id": "events_sms_calls-5674",
       "application_id": "",
-      "event_at": "09.06.2026 8:05",
+      "event_at": "2026-06-09T05:05:00.000Z",
       "minutes_since_application": null,
       "channel": "call",
       "from_phone": "+7 (495) 445-02-70",
@@ -831,9 +831,9 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2872",
+      "event_id": "E-SC-2891",
       "application_id": "APP-1-565",
-      "event_at": "09.06.2026 9:42",
+      "event_at": "2026-06-09T06:42:00.000Z",
       "minutes_since_application": 2466,
       "channel": "call",
       "from_phone": "+7 (495) 445-02-70",
@@ -841,7 +841,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2885",
+      "event_id": "E-SC-2904",
       "application_id": "APP-1-599",
       "event_at": "2026-06-09T07:44:00.000Z",
       "minutes_since_application": 3489,
@@ -851,7 +851,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2905",
+      "event_id": "E-SC-2924",
       "application_id": "APP-1-565",
       "event_at": "2026-06-09T10:07:00.000Z",
       "minutes_since_application": 2671,
@@ -871,7 +871,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2946",
+      "event_id": "E-SC-2965",
       "application_id": "APP-1-633",
       "event_at": "2026-06-09T15:03:00.000Z",
       "minutes_since_application": 1838,
@@ -881,9 +881,9 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2956",
+      "event_id": "E-SC-2975",
       "application_id": "APP-1-667",
-      "event_at": "10.06.2026 8:32",
+      "event_at": "2026-06-10T05:32:00.000Z",
       "minutes_since_application": 2514,
       "channel": "call",
       "from_phone": "+7 (495) 445-02-70",
@@ -893,7 +893,7 @@
     {
       "event_id": "events_sms_calls-6278",
       "application_id": "",
-      "event_at": "10.06.2026 8:37",
+      "event_at": "2026-06-10T05:37:00.000Z",
       "minutes_since_application": null,
       "channel": "call",
       "from_phone": "+7 (495) 445-02-70",
@@ -901,7 +901,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2987",
+      "event_id": "E-SC-3006",
       "application_id": "APP-1-667",
       "event_at": "2026-06-10T08:45:00.000Z",
       "minutes_since_application": 2707,

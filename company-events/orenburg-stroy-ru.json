@@ -5,7 +5,7 @@
   "applications": [
     {
       "application_id": "APP-3-024",
-      "submitted_at": "2026-06-02T10:02:00.000Z",
+      "submitted_at": "2026-06-02T07:02:00.000Z",
       "time_slot": "morning",
       "day_of_week": "tuesday",
       "got_identified_call": true,
@@ -13,7 +13,7 @@
     },
     {
       "application_id": "APP-3-057",
-      "submitted_at": "2026-06-02T13:37:00.000Z",
+      "submitted_at": "2026-06-02T10:37:00.000Z",
       "time_slot": "afternoon",
       "day_of_week": "tuesday",
       "got_identified_call": false,
@@ -21,7 +21,7 @@
     },
     {
       "application_id": "APP-3-090",
-      "submitted_at": "2026-06-02T19:28:00.000Z",
+      "submitted_at": "2026-06-02T16:28:00.000Z",
       "time_slot": "evening",
       "day_of_week": "tuesday",
       "got_identified_call": true,
@@ -29,7 +29,7 @@
     },
     {
       "application_id": "APP-3-123",
-      "submitted_at": "2026-06-03T09:27:59.999Z",
+      "submitted_at": "2026-06-03T06:27:59.000Z",
       "time_slot": "morning",
       "day_of_week": "tuesday",
       "got_identified_call": true,
@@ -37,7 +37,7 @@
     },
     {
       "application_id": "APP-3-156",
-      "submitted_at": "2026-06-03T13:33:00.000Z",
+      "submitted_at": "2026-06-03T10:33:00.000Z",
       "time_slot": "afternoon",
       "day_of_week": "tuesday",
       "got_identified_call": true,
@@ -45,7 +45,7 @@
     },
     {
       "application_id": "APP-3-189",
-      "submitted_at": "2026-06-03T19:31:59.999Z",
+      "submitted_at": "2026-06-03T16:31:59.000Z",
       "time_slot": "evening",
       "day_of_week": "tuesday",
       "got_identified_call": true,
@@ -53,7 +53,7 @@
     },
     {
       "application_id": "APP-3-222",
-      "submitted_at": "2026-06-04T09:40:00.000Z",
+      "submitted_at": "2026-06-04T06:40:00.000Z",
       "time_slot": "morning",
       "day_of_week": "thursday",
       "got_identified_call": true,
@@ -61,7 +61,7 @@
     },
     {
       "application_id": "APP-3-255",
-      "submitted_at": "2026-06-04T13:29:00.000Z",
+      "submitted_at": "2026-06-04T10:29:00.000Z",
       "time_slot": "afternoon",
       "day_of_week": "thursday",
       "got_identified_call": true,
@@ -69,7 +69,7 @@
     },
     {
       "application_id": "APP-3-288",
-      "submitted_at": "2026-06-04T19:47:00.000Z",
+      "submitted_at": "2026-06-04T16:47:00.000Z",
       "time_slot": "evening",
       "day_of_week": "thursday",
       "got_identified_call": true,
@@ -77,7 +77,7 @@
     },
     {
       "application_id": "APP-3-321",
-      "submitted_at": "2026-06-05T09:40:00.000Z",
+      "submitted_at": "2026-06-05T06:40:00.000Z",
       "time_slot": "morning",
       "day_of_week": "friday",
       "got_identified_call": false,
@@ -85,7 +85,7 @@
     },
     {
       "application_id": "APP-3-354",
-      "submitted_at": "2026-06-05T13:37:00.000Z",
+      "submitted_at": "2026-06-05T10:37:00.000Z",
       "time_slot": "afternoon",
       "day_of_week": "friday",
       "got_identified_call": true,
@@ -93,7 +93,7 @@
     },
     {
       "application_id": "APP-3-387",
-      "submitted_at": "2026-06-05T19:50:00.000Z",
+      "submitted_at": "2026-06-05T16:50:00.000Z",
       "time_slot": "evening",
       "day_of_week": "friday",
       "got_identified_call": false,
@@ -101,7 +101,7 @@
     },
     {
       "application_id": "APP-3-420",
-      "submitted_at": "2026-06-06T09:42:00.000Z",
+      "submitted_at": "2026-06-06T06:42:00.000Z",
       "time_slot": "morning",
       "day_of_week": "saturday",
       "got_identified_call": true,
@@ -109,7 +109,7 @@
     },
     {
       "application_id": "APP-3-453",
-      "submitted_at": "2026-06-06T14:32:59.999Z",
+      "submitted_at": "2026-06-06T11:32:59.000Z",
       "time_slot": "afternoon",
       "day_of_week": "saturday",
       "got_identified_call": true,
@@ -117,7 +117,7 @@
     },
     {
       "application_id": "APP-3-486",
-      "submitted_at": "2026-06-06T19:43:00.000Z",
+      "submitted_at": "2026-06-06T16:43:00.000Z",
       "time_slot": "evening",
       "day_of_week": "saturday",
       "got_identified_call": true,
@@ -125,7 +125,7 @@
     },
     {
       "application_id": "APP-3-519",
-      "submitted_at": "2026-06-07T11:25:00.000Z",
+      "submitted_at": "2026-06-07T08:25:00.000Z",
       "time_slot": "morning",
       "day_of_week": "sunday",
       "got_identified_call": false,
@@ -133,7 +133,7 @@
     },
     {
       "application_id": "APP-3-552",
-      "submitted_at": "2026-06-07T13:57:00.000Z",
+      "submitted_at": "2026-06-07T10:57:00.000Z",
       "time_slot": "afternoon",
       "day_of_week": "sunday",
       "got_identified_call": true,
@@ -141,7 +141,7 @@
     },
     {
       "application_id": "APP-3-585",
-      "submitted_at": "2026-06-07T19:26:00.000Z",
+      "submitted_at": "2026-06-07T16:26:00.000Z",
       "time_slot": "evening",
       "day_of_week": "sunday",
       "got_identified_call": true,
@@ -149,7 +149,7 @@
     },
     {
       "application_id": "APP-3-618",
-      "submitted_at": "2026-06-08T09:24:00.000Z",
+      "submitted_at": "2026-06-08T06:24:00.000Z",
       "time_slot": "morning",
       "day_of_week": "monday",
       "got_identified_call": false,
@@ -157,7 +157,7 @@
     },
     {
       "application_id": "APP-3-651",
-      "submitted_at": "2026-06-08T13:19:59.999Z",
+      "submitted_at": "2026-06-08T10:19:59.000Z",
       "time_slot": "afternoon",
       "day_of_week": "monday",
       "got_identified_call": false,
@@ -165,7 +165,7 @@
     },
     {
       "application_id": "APP-3-684",
-      "submitted_at": "2026-06-08T19:25:00.000Z",
+      "submitted_at": "2026-06-08T16:25:00.000Z",
       "time_slot": "evening",
       "day_of_week": "monday",
       "got_identified_call": false,
@@ -176,7 +176,7 @@
     {
       "event_id": "E-M-0001",
       "application_id": "APP-3-024",
-      "event_at": "2026-06-02T14:42:59.999Z",
+      "event_at": "2026-06-02T11:42:59.000Z",
       "minutes_since_application": 281,
       "channel": "max",
       "from_phone": "+7 (903) 360-03-12",
@@ -186,7 +186,7 @@
     {
       "event_id": "E-M-0011",
       "application_id": "APP-3-090",
-      "event_at": "2026-06-03T09:53:00.000Z",
+      "event_at": "2026-06-03T06:53:00.000Z",
       "minutes_since_application": 865,
       "channel": "max",
       "from_phone": "+7 (903) 360-03-12",
@@ -196,7 +196,7 @@
     {
       "event_id": "E-M-0070",
       "application_id": "APP-3-552",
-      "event_at": "2026-06-08T13:00:00.000Z",
+      "event_at": "2026-06-08T10:00:00.000Z",
       "minutes_since_application": 1383,
       "channel": "max",
       "from_phone": "+7 (902) 921-97-52",
@@ -234,9 +234,9 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-0606",
+      "event_id": "E-SC-0608",
       "application_id": "APP-3-090",
-      "event_at": "03.06.2026 7:44",
+      "event_at": "2026-06-03T04:44:00.000Z",
       "minutes_since_application": 736,
       "channel": "call",
       "from_phone": "+7 (908) 324-08-68",
@@ -244,9 +244,9 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-0622",
+      "event_id": "E-SC-0624",
       "application_id": "APP-3-123",
-      "event_at": "03.06.2026 9:28",
+      "event_at": "2026-06-03T06:28:00.000Z",
       "minutes_since_application": 0,
       "channel": "call",
       "from_phone": "+7 (908) 324-08-68",
@@ -254,7 +254,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-0760",
+      "event_id": "E-SC-0762",
       "application_id": "APP-3-156",
       "event_at": "2026-06-03T10:38:00.000Z",
       "minutes_since_application": 5,
@@ -264,9 +264,9 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-0929",
+      "event_id": "E-SC-0931",
       "application_id": "APP-3-189",
-      "event_at": "04.06.2026 7:49",
+      "event_at": "2026-06-04T04:49:00.000Z",
       "minutes_since_application": 737,
       "channel": "call",
       "from_phone": "+7 (908) 324-08-68",
@@ -274,9 +274,9 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-1014",
+      "event_id": "E-SC-1016",
       "application_id": "APP-3-222",
-      "event_at": "04.06.2026 9:53",
+      "event_at": "2026-06-04T06:53:00.000Z",
       "minutes_since_application": 13,
       "channel": "call",
       "from_phone": "+7 (908) 324-08-68",
@@ -284,7 +284,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-1172",
+      "event_id": "E-SC-1174",
       "application_id": "APP-3-255",
       "event_at": "2026-06-04T10:36:00.000Z",
       "minutes_since_application": 7,
@@ -296,7 +296,7 @@
     {
       "event_id": "events_sms_calls-2505",
       "application_id": "",
-      "event_at": "05.06.2026 7:48",
+      "event_at": "2026-06-05T04:48:00.000Z",
       "minutes_since_application": null,
       "channel": "call",
       "from_phone": "+7 (908) 324-08-68",
@@ -304,7 +304,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-1567",
+      "event_id": "E-SC-1572",
       "application_id": "APP-3-288",
       "event_at": "2026-06-05T08:16:00.000Z",
       "minutes_since_application": 929,
@@ -324,9 +324,9 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2396",
+      "event_id": "E-SC-2415",
       "application_id": "APP-3-552",
-      "event_at": "08.06.2026 8:37",
+      "event_at": "2026-06-08T05:37:00.000Z",
       "minutes_since_application": 1120,
       "channel": "call",
       "from_phone": "+7 (908) 324-08-68",
@@ -334,9 +334,9 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2397",
+      "event_id": "E-SC-2416",
       "application_id": "APP-3-486",
-      "event_at": "08.06.2026 8:38",
+      "event_at": "2026-06-08T05:38:00.000Z",
       "minutes_since_application": 2215,
       "channel": "call",
       "from_phone": "+7 (908) 324-08-68",
@@ -344,9 +344,9 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2401",
+      "event_id": "E-SC-2420",
       "application_id": "APP-3-585",
-      "event_at": "08.06.2026 8:43",
+      "event_at": "2026-06-08T05:43:00.000Z",
       "minutes_since_application": 797,
       "channel": "call",
       "from_phone": "+7 (903) 360-03-12",
@@ -354,9 +354,9 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2403",
+      "event_id": "E-SC-2422",
       "application_id": "APP-3-486",
-      "event_at": "08.06.2026 8:44",
+      "event_at": "2026-06-08T05:44:00.000Z",
       "minutes_since_application": 2221,
       "channel": "call",
       "from_phone": "+7 (903) 360-03-12",
@@ -364,9 +364,9 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2404",
+      "event_id": "E-SC-2423",
       "application_id": "APP-3-552",
-      "event_at": "08.06.2026 8:44",
+      "event_at": "2026-06-08T05:44:00.000Z",
       "minutes_since_application": 1127,
       "channel": "call",
       "from_phone": "+7 (903) 360-03-12",
@@ -376,7 +376,7 @@
     {
       "event_id": "events_sms_calls-4764",
       "application_id": "",
-      "event_at": "08.06.2026 9:35",
+      "event_at": "2026-06-08T06:35:00.000Z",
       "minutes_since_application": null,
       "channel": "call",
       "from_phone": "+7 (908) 324-08-68",
@@ -384,9 +384,9 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2477",
+      "event_id": "E-SC-2496",
       "application_id": "APP-3-420",
-      "event_at": "08.06.2026 9:45",
+      "event_at": "2026-06-08T06:45:00.000Z",
       "minutes_since_application": 2883,
       "channel": "call",
       "from_phone": "+7 (908) 324-08-68",
@@ -394,9 +394,9 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2480",
+      "event_id": "E-SC-2499",
       "application_id": "APP-3-453",
-      "event_at": "08.06.2026 9:50",
+      "event_at": "2026-06-08T06:50:00.000Z",
       "minutes_since_application": 2597,
       "channel": "call",
       "from_phone": "+7 (908) 324-08-68",
@@ -404,9 +404,9 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2482",
+      "event_id": "E-SC-2501",
       "application_id": "APP-3-354",
-      "event_at": "08.06.2026 9:52",
+      "event_at": "2026-06-08T06:52:00.000Z",
       "minutes_since_application": 4095,
       "channel": "call",
       "from_phone": "+7 (908) 324-08-68",

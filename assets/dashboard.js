@@ -5,8 +5,14 @@
   var PLANNED_APPLICATIONS = 21;
   var APPLICATIONS_QUORUM = 11;
   var ANALYTICS_WINDOW_MINUTES = 72 * 60;
-  var TOUCHES_IN_72H_LABEL = "Касаний за 72 часа";
-  var AVG_TOUCHES_PER_APP_LABEL = "Касаний на заявку";
+  var SPEED_LABEL = "Скорость перезвона";
+  var NO_CALL_LABEL = "Заявки без перезвона";
+  var MESSENGER_PENETRATION_LABEL = "Проникновение мессенджеров";
+  var AVG_TOUCHES_PER_RESPONDED_APP_LABEL = "Касаний на заявку с ответом";
+  var AVG_TOUCHES_PER_RESPONDED_BENCH = "на заявку с ответом";
+  var AVG_TOUCHES_PER_SENT_APP_LABEL = "Касаний на отправленную заявку";
+  var FIRST_CALL_WEEKDAY_WEEKEND_LABEL = "Медиана скорости перезвона: Будни / Выходные";
+  var FIRST_CALL_DAY_TYPE_MIN_N = 3;
   var CFG = window.APP_CONFIG || {};
   var STUDY_PERIOD = { from: "2026-06-02", to: "2026-06-08", label: "2–8 июня 2026" };
   var PERIOD_LABEL = "II квартал 2026";
@@ -727,6 +733,61 @@
     return Math.round((d.no_callback_share / 100) * d.applications_sent);
   }
 
+  function getRespondedAppsCount() {
+    var touchEvents = getRatingTouchEvents();
+    if (touchEvents.length) {
+      var appIds = {};
+      touchEvents.forEach(function (e) {
+        if (e.application_id) appIds[e.application_id] = true;
+      });
+      return Object.keys(appIds).length;
+    }
+    var d = state.company;
+    if (!d || d.applications_sent == null || d.no_callback_share == null) return null;
+    return d.applications_sent - Math.round((d.no_callback_share / 100) * d.applications_sent);
+  }
+
+  function getAvgTouchesPerRespondedApp() {
+    var touches = getTouchesIn72hCount();
+    var responded = getRespondedAppsCount();
+    if (touches != null && responded) return touches / responded;
+    var d = state.company;
+    if (d && d.avg_touches_per_responded_app != null) return d.avg_touches_per_responded_app;
+    return null;
+  }
+
+  function formatAvgTouchesPerRespondedApp() {
+    var v = getAvgTouchesPerRespondedApp();
+    return v != null ? fmtNum(v) : "—";
+  }
+
+  function marketMeanTouchesPerResponded() {
+    var devs = (state.developers || []).filter(function (d) {
+      return !d.insufficient_data && d.avg_touches_per_responded_app != null;
+    });
+    if (!devs.length) return null;
+    var sum = 0;
+    devs.forEach(function (d) {
+      sum += d.avg_touches_per_responded_app;
+    });
+    return Math.round((sum / devs.length) * 10) / 10;
+  }
+
+  function marketMeanTouchesPerSent() {
+    var devs = (state.developers || []).filter(function (d) {
+      return !d.insufficient_data && d.applications_sent && d.total_touches != null;
+    });
+    if (!devs.length) return null;
+    var sumTouches = 0;
+    var sumApps = 0;
+    devs.forEach(function (d) {
+      sumTouches += d.total_touches;
+      sumApps += d.applications_sent;
+    });
+    if (!sumApps) return null;
+    return Math.round((sumTouches / sumApps) * 10) / 10;
+  }
+
   function getAvgTouchesPerApp() {
     var sent = getApplicationsSentCount();
     var touches = getTouchesIn72hCount();
@@ -737,6 +798,70 @@
   function formatAvgTouchesPerApp() {
     var v = getAvgTouchesPerApp();
     return v != null ? fmtNum(v) : "—";
+  }
+
+  function getFirstCallByDayType(company) {
+    if (!company || !company.first_call_by_day_type) return null;
+    return company.first_call_by_day_type;
+  }
+
+  function formatFirstCallMedianPair(slice) {
+    if (!slice) return "—";
+    var wd = slice.weekday && slice.weekday.median_minutes;
+    var we = slice.weekend && slice.weekend.median_minutes;
+    if (wd == null && we == null) return "—";
+    var left = wd != null ? fmtDuration(wd) : "—";
+    var right = we != null ? fmtDuration(we) : "—";
+    return left + " / " + right;
+  }
+
+  function formatFirstCallByDayTypeBench(slice) {
+    if (!slice) return "";
+    var market = formatFirstCallMedianPair(slice);
+    if (market === "—") return "";
+    var wdN = slice.weekday && slice.weekday.n != null ? slice.weekday.n : null;
+    var weN = slice.weekend && slice.weekend.n != null ? slice.weekend.n : null;
+    var nPart =
+      wdN != null && weN != null ? " · n=" + fmtInt(wdN) + " / " + fmtInt(weN) : "";
+    return "Рынок: " + market + nPart;
+  }
+
+  function compareFirstCallByDayType(companySlice, marketSlice) {
+    if (!companySlice || !marketSlice) return "";
+    var wdN = companySlice.weekday && companySlice.weekday.n;
+    var weN = companySlice.weekend && companySlice.weekend.n;
+    if (
+      wdN == null ||
+      weN == null ||
+      wdN < FIRST_CALL_DAY_TYPE_MIN_N ||
+      weN < FIRST_CALL_DAY_TYPE_MIN_N
+    ) {
+      return "";
+    }
+    var companyRatio = companySlice.weekend_vs_weekday_ratio;
+    var marketRatio = marketSlice.weekend_vs_weekday_ratio;
+    if (companyRatio == null || marketRatio == null) return "";
+
+    if (companySlice.weekend_slower) {
+      if (companyRatio > marketRatio * 1.1) {
+        return deltaTag(
+          "bad",
+          "На выходных ×" + fmtNum(companyRatio) + " — хуже рынка (×" + fmtNum(marketRatio) + ")"
+        );
+      }
+      if (companyRatio < marketRatio * 0.9) {
+        return deltaTag(
+          "good",
+          "На выходных ×" + fmtNum(companyRatio) + " — лучше рынка (×" + fmtNum(marketRatio) + ")"
+        );
+      }
+      return deltaTag("neutral", "На выходных ×" + fmtNum(companyRatio) + " — на уровне рынка");
+    }
+
+    if (!companySlice.weekend_slower) {
+      return deltaTag("good", "На выходных не медленнее будней");
+    }
+    return "";
   }
 
   function renderApplicationsSummary(data) {
@@ -767,7 +892,7 @@
       "</p>" +
       "</article>" +
       '<article class="dash-kpi">' +
-      '<p class="dash-kpi__label">' + esc(AVG_TOUCHES_PER_APP_LABEL) + "</p>" +
+      '<p class="dash-kpi__label">' + esc(AVG_TOUCHES_PER_SENT_APP_LABEL) + "</p>" +
       '<p class="dash-kpi__value">' +
       esc(formatAvgTouchesPerApp()) +
       "</p>" +
@@ -1131,6 +1256,7 @@
       year: "numeric",
       hour: "2-digit",
       minute: "2-digit",
+      timeZone: "Europe/Moscow",
     });
   }
 
@@ -1152,8 +1278,25 @@
       "ноября",
       "декабря",
     ];
-    var time = d.toLocaleTimeString("ru-RU", { hour: "2-digit", minute: "2-digit" });
-    return d.getDate() + " " + months[d.getMonth()] + ", " + time;
+    var parts = new Intl.DateTimeFormat("ru-RU", {
+      timeZone: "Europe/Moscow",
+      day: "numeric",
+      month: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    }).formatToParts(d);
+    var day = "";
+    var month = "";
+    var hour = "";
+    var minute = "";
+    for (var i = 0; i < parts.length; i++) {
+      if (parts[i].type === "day") day = parts[i].value;
+      if (parts[i].type === "month") month = parts[i].value;
+      if (parts[i].type === "hour") hour = parts[i].value;
+      if (parts[i].type === "minute") minute = parts[i].value;
+    }
+    var monthName = months[Number(month) - 1] || month;
+    return day + " " + monthName + ", " + hour + ":" + minute;
   }
 
   function renderExecutiveSummary(d, m) {
@@ -1178,6 +1321,29 @@
     } else if (speed != null) {
       lines.push(
         "Медиана первого звонка — " + fmtDuration(speed) + "."
+      );
+    }
+
+    var dayType = getFirstCallByDayType(d);
+    var marketDayType = m && m.first_call_by_day_type;
+    if (
+      dayType &&
+      marketDayType &&
+      dayType.weekend_slower &&
+      dayType.weekend_vs_weekday_ratio != null &&
+      marketDayType.weekend_vs_weekday_ratio != null &&
+      dayType.weekend_vs_weekday_ratio > marketDayType.weekend_vs_weekday_ratio * 1.1 &&
+      dayType.weekday &&
+      dayType.weekend &&
+      dayType.weekday.n >= FIRST_CALL_DAY_TYPE_MIN_N &&
+      dayType.weekend.n >= FIRST_CALL_DAY_TYPE_MIN_N
+    ) {
+      lines.push(
+        "На выходных первый звонок заметно медленнее будней (×" +
+          fmtNum(dayType.weekend_vs_weekday_ratio) +
+          " против ×" +
+          fmtNum(marketDayType.weekend_vs_weekday_ratio) +
+          " по рынку) — часто ответ переносится на понедельник."
       );
     }
 
@@ -1216,7 +1382,7 @@
   function renderKpis(d, m) {
     var cards = [
       kpiCard(
-        "Как быстро перезванивают?",
+        SPEED_LABEL,
         d.avg_call_response != null ? fmtDuration(d.avg_call_response) : "—",
         m && m.avg_call_response
           ? "Рынок: " +
@@ -1227,17 +1393,43 @@
         compareSpeed(d.avg_call_response, m)
       ),
       kpiCard(
-        "Заявки без звонка",
+        FIRST_CALL_WEEKDAY_WEEKEND_LABEL,
+        formatFirstCallMedianPair(getFirstCallByDayType(d)),
+        formatFirstCallByDayTypeBench(m && m.first_call_by_day_type),
+        compareFirstCallByDayType(
+          getFirstCallByDayType(d),
+          m && m.first_call_by_day_type
+        )
+      ),
+      kpiCard(
+        NO_CALL_LABEL,
         d.no_call_share != null ? fmtPct(d.no_call_share) : "—",
         m && m.no_call_share ? "Рынок: " + fmtPct(m.no_call_share.mean) : "",
         compareNoCall(d.no_call_share, m)
       ),
-      kpiCard(AVG_TOUCHES_PER_APP_LABEL, formatAvgTouchesPerApp(), "", null),
       kpiCard(
-        "Проникновение SMS/мессенджеров",
+        MESSENGER_PENETRATION_LABEL,
         d.messenger_penetration_share != null ? fmtPct(d.messenger_penetration_share) : "—",
         m && m.messengers ? "Рынок: " + fmtPct(m.messengers.mean) : "",
         compareMessengers(d.messenger_penetration_share, m)
+      ),
+      kpiCard(
+        AVG_TOUCHES_PER_RESPONDED_APP_LABEL,
+        formatAvgTouchesPerRespondedApp(),
+        (marketMeanTouchesPerResponded() != null
+          ? "Рынок: " + fmtNum(marketMeanTouchesPerResponded())
+          : "") +
+          " · " +
+          AVG_TOUCHES_PER_RESPONDED_BENCH,
+        compareTouchesPerResponded(getAvgTouchesPerRespondedApp())
+      ),
+      kpiCard(
+        AVG_TOUCHES_PER_SENT_APP_LABEL,
+        formatAvgTouchesPerApp(),
+        marketMeanTouchesPerSent() != null
+          ? "Рынок: " + fmtNum(marketMeanTouchesPerSent()) + " · все отправленные заявки"
+          : "все отправленные заявки",
+        compareTouchesPerSent(getAvgTouchesPerApp())
       ),
     ];
     els.kpiGrid.innerHTML = cards.join("");
@@ -1271,6 +1463,22 @@
     var mean = m.no_call_share.mean;
     if (company > mean) return deltaTag("bad", "Хуже среднего на " + Math.round(company - mean) + " п.п.");
     if (company < mean) return deltaTag("good", "Лучше среднего на " + Math.round(mean - company) + " п.п.");
+    return deltaTag("neutral", "На уровне рынка");
+  }
+
+  function compareTouchesPerResponded(company) {
+    var mean = marketMeanTouchesPerResponded();
+    if (company == null || mean == null) return "";
+    if (company > mean) return deltaTag("good", "Выше среднего рынка");
+    if (company < mean) return deltaTag("bad", "Ниже среднего рынка");
+    return deltaTag("neutral", "На уровне рынка");
+  }
+
+  function compareTouchesPerSent(company) {
+    var mean = marketMeanTouchesPerSent();
+    if (company == null || mean == null) return "";
+    if (company > mean) return deltaTag("good", "Выше среднего рынка");
+    if (company < mean) return deltaTag("bad", "Ниже среднего рынка");
     return deltaTag("neutral", "На уровне рынка");
   }
 
@@ -1348,6 +1556,42 @@
       });
     }
 
+    var dayType = getFirstCallByDayType(d);
+    var marketDayType = m && m.first_call_by_day_type;
+    if (
+      dayType &&
+      marketDayType &&
+      dayType.weekend_slower &&
+      dayType.weekend_vs_weekday_ratio != null &&
+      marketDayType.weekend_vs_weekday_ratio != null &&
+      dayType.weekend_vs_weekday_ratio > marketDayType.weekend_vs_weekday_ratio * 1.1 &&
+      dayType.weekday &&
+      dayType.weekend &&
+      dayType.weekday.n >= FIRST_CALL_DAY_TYPE_MIN_N &&
+      dayType.weekend.n >= FIRST_CALL_DAY_TYPE_MIN_N
+    ) {
+      cards.push({
+        tag: "risk",
+        tagLabel: "Зона роста",
+        title: "Медленный первый звонок в выходные",
+        body:
+          "Будни " +
+          fmtDuration(dayType.weekday.median_minutes) +
+          ", выходные " +
+          fmtDuration(dayType.weekend.median_minutes) +
+          " (×" +
+          fmtNum(dayType.weekend_vs_weekday_ratio) +
+          "). Рынок: " +
+          formatFirstCallMedianPair(marketDayType) +
+          ".",
+        checks: [
+          "Есть ли дежурная смена или автоответ в сб/вс",
+          "Попадают ли заявки с сайта в CRM в выходные без задержки до понедельника",
+          "Сверить SLA по слотам отправки заявки",
+        ],
+      });
+    }
+
     if (d.no_call_share != null && m && m.no_call_share && d.no_call_share > m.no_call_share.mean) {
       var missed = Math.round(((d.no_call_share / 100) * (d.applications_sent || 0)));
       cards.push({
@@ -1369,9 +1613,9 @@
       });
     }
 
-    var avgTouchesPerApp = getAvgTouchesPerApp();
+    var avgTouchesPerResponded = getAvgTouchesPerRespondedApp();
     if (
-      (avgTouchesPerApp || 0) < 2 &&
+      (avgTouchesPerResponded || 0) < 2 &&
       d.no_call_share != null &&
       d.no_call_share < 50
     ) {
@@ -1381,8 +1625,8 @@
         title: "Мало повторных касаний",
         body:
           "В среднем " +
-          fmtNum(avgTouchesPerApp) +
-          " касаний на заявку. При недозвоне клиент может не получить второй контакт.",
+          fmtNum(avgTouchesPerResponded) +
+          " касаний на заявку с ответом. При недозвоне клиент может не получить второй контакт.",
         checks: [
           "Есть ли сценарий повторного звонка или SMS после недозвона",
           "Настроены ли задачи менеджерам в CRM",
