@@ -185,7 +185,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-1388",
+      "event_id": "E-SC-1389",
       "application_id": "APP-1-287",
       "event_at": "05.06.2026 8:31",
       "minutes_since_application": 731,
@@ -195,7 +195,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-1639",
+      "event_id": "E-SC-1640",
       "application_id": "APP-1-287",
       "event_at": "2026-06-05T10:20:00.000Z",
       "minutes_since_application": 1020,

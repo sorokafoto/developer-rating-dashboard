@@ -8,7 +8,7 @@
     "developers_count": 100,
     "applications_sent_total": 1980,
     "target_applications": 2100,
-    "generated_at": "2026-06-22T16:35:33.741Z"
+    "generated_at": "2026-06-24T08:29:01.685Z"
   },
   "market": {
     "sample_size": 74,
@@ -19,7 +19,7 @@
       "best": 1
     },
     "avg_call_response": {
-      "mean": 505,
+      "mean": 507,
       "best": 1
     },
     "no_callback_share": {
@@ -43,7 +43,7 @@
     "spam_share": {
       "mean": 42,
       "total": 7121,
-      "spam": 3006
+      "spam": 2998
     }
   },
   "developers": [
@@ -776,34 +776,6 @@
       }
     },
     {
-      "developer_name": "DOGMA",
-      "url": "dogma.ru",
-      "applications_sent": 21,
-      "insufficient_data": false,
-      "avg_response": 12,
-      "no_callback_share": 57,
-      "avg_recontacts": 0.7,
-      "total_touches": 24,
-      "max_touches_per_app": 4,
-      "channel_share": {
-        "sms": 43,
-        "max": 0,
-        "whatsapp": 0,
-        "telegram": 0,
-        "call": 33
-      },
-      "avg_call_response": 187,
-      "no_call_share": 67,
-      "avg_touches_per_responded_app": 2.7,
-      "messenger_penetration_share": 43,
-      "messenger_channel_share": {
-        "sms": 100,
-        "max": 0,
-        "whatsapp": 0,
-        "telegram": 0
-      }
-    },
-    {
       "developer_name": "Новый Нижний",
       "url": "nn-r.ru",
       "applications_sent": 21,
@@ -880,6 +852,34 @@
       "no_call_share": 29,
       "avg_touches_per_responded_app": 2.5,
       "messenger_penetration_share": 33,
+      "messenger_channel_share": {
+        "sms": 100,
+        "max": 0,
+        "whatsapp": 0,
+        "telegram": 0
+      }
+    },
+    {
+      "developer_name": "DOGMA",
+      "url": "dogma.ru",
+      "applications_sent": 21,
+      "insufficient_data": false,
+      "avg_response": 12,
+      "no_callback_share": 57,
+      "avg_recontacts": 1,
+      "total_touches": 30,
+      "max_touches_per_app": 5,
+      "channel_share": {
+        "sms": 43,
+        "max": 0,
+        "whatsapp": 0,
+        "telegram": 0,
+        "call": 38
+      },
+      "avg_call_response": 312,
+      "no_call_share": 62,
+      "avg_touches_per_responded_app": 3.3,
+      "messenger_penetration_share": 43,
       "messenger_channel_share": {
         "sms": 100,
         "max": 0,

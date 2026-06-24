@@ -849,7 +849,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-1137",
+      "event_id": "E-SC-1138",
       "application_id": "APP-3-126",
       "event_at": "2026-06-04T09:38:00.000Z",
       "minutes_since_application": 1628,
@@ -869,7 +869,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-1201",
+      "event_id": "E-SC-1202",
       "application_id": "APP-3-225",
       "event_at": "2026-06-04T11:01:00.000Z",
       "minutes_since_application": 258,
@@ -889,7 +889,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-1302",
+      "event_id": "E-SC-1303",
       "application_id": "APP-3-192",
       "event_at": "2026-06-04T13:38:00.000Z",
       "minutes_since_application": 1265,
@@ -899,7 +899,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-1311",
+      "event_id": "E-SC-1312",
       "application_id": "APP-3-126",
       "event_at": "2026-06-04T14:06:00.000Z",
       "minutes_since_application": 1896,
@@ -909,7 +909,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-1323",
+      "event_id": "E-SC-1324",
       "application_id": "APP-3-126",
       "event_at": "2026-06-04T14:43:00.000Z",
       "minutes_since_application": 1933,
@@ -919,7 +919,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-1356",
+      "event_id": "E-SC-1357",
       "application_id": "APP-3-258",
       "event_at": "2026-06-04T16:50:00.000Z",
       "minutes_since_application": 379,
@@ -929,7 +929,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-1368",
+      "event_id": "E-SC-1369",
       "application_id": "APP-3-159",
       "event_at": "2026-06-04T17:43:00.000Z",
       "minutes_since_application": 1868,
@@ -939,7 +939,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-1773",
+      "event_id": "E-SC-1776",
       "application_id": "APP-3-357",
       "event_at": "2026-06-05T15:35:00.000Z",
       "minutes_since_application": 296,
@@ -959,7 +959,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2117",
+      "event_id": "E-SC-2123",
       "application_id": "APP-3-291",
       "event_at": "2026-06-07T07:53:00.000Z",
       "minutes_since_application": 3784,
@@ -989,7 +989,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2150",
+      "event_id": "E-SC-2156",
       "application_id": "APP-3-291",
       "event_at": "2026-06-07T08:24:00.000Z",
       "minutes_since_application": 3815,
@@ -1069,7 +1069,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2217",
+      "event_id": "E-SC-2223",
       "application_id": "APP-3-291",
       "event_at": "2026-06-07T10:57:00.000Z",
       "minutes_since_application": 3968,
@@ -1079,7 +1079,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2218",
+      "event_id": "E-SC-2224",
       "application_id": "APP-3-390",
       "event_at": "2026-06-07T11:01:00.000Z",
       "minutes_since_application": 2529,
@@ -1089,7 +1089,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2223",
+      "event_id": "E-SC-2229",
       "application_id": "APP-3-489",
       "event_at": "2026-06-07T11:05:00.000Z",
       "minutes_since_application": 1101,
@@ -1149,7 +1149,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2659",
+      "event_id": "E-SC-2665",
       "application_id": "APP-3-621",
       "event_at": "2026-06-08T10:33:00.000Z",
       "minutes_since_application": 248,
@@ -1219,7 +1219,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2727",
+      "event_id": "E-SC-2733",
       "application_id": "APP-3-489",
       "event_at": "2026-06-08T12:00:00.000Z",
       "minutes_since_application": 2596,
@@ -1239,7 +1239,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2757",
+      "event_id": "E-SC-2763",
       "application_id": "APP-3-621",
       "event_at": "2026-06-08T12:51:00.000Z",
       "minutes_since_application": 386,
@@ -1249,7 +1249,7 @@
       "verification_confidence": "high"
     },
     {
-      "event_id": "E-SC-2832",
+      "event_id": "E-SC-2838",
       "application_id": "APP-3-687",
       "event_at": "2026-06-08T16:27:00.000Z",
       "minutes_since_application": 0,
