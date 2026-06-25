@@ -8,7 +8,16 @@
 
 ## Запуск
 
-Данные подтягиваются из соседнего проекта `developer-response-rating` (симлинки `data.js` / `data.json`). Перед первым запуском обновите агрегаты, номера цикла и выгрузку событий по компаниям:
+Данные подтягиваются из проекта `developer-response-rating`:
+
+```bash
+cd ../developer-response-rating
+npm run build-data              # → data/working/data.json
+npm run sync-dashboard-data     # копия в этот репозиторий
+npm run export-company-events   # при необходимости
+```
+
+Публичный рейтинг (`estaterating.ru`, GitHub Pages `estate-rating`) обновляется **отдельно** через `npm run promote-public-data` в рейтинге — пуш дашборда не меняет сайт.
 
 ```bash
 cd ../developer-response-rating
