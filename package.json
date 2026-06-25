@@ -5,6 +5,11 @@
   "type": "module",
   "description": "Внутренний sales-enablement дашборд по расширенной аналитике рейтинга застройщиков.",
   "scripts": {
-    "serve": "node build/serve.mjs"
+    "serve": "node build/serve.mjs",
+    "vendor:html2pdf": "cp node_modules/html2pdf.js/dist/html2pdf.bundle.min.js assets/vendor/html2pdf.bundle.min.js",
+    "verify:pdf": "node build/verify-pdf-export.mjs"
+  },
+  "devDependencies": {
+    "html2pdf.js": "^0.10.3"
   }
 }

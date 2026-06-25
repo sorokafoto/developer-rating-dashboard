@@ -13,12 +13,13 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/dashboard.css" />
+    <link rel="stylesheet" href="assets/report-pdf.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">К содержанию</a>
 
     <header class="dash-header">
-      <div class="wrap dash-header__inner">
+      <div class="wrap dash-header__layout">
         <h1 class="dash-header__title">Дашборд расширенной аналитики</h1>
         <div class="dash-header__actions">
           <div class="dash-control dash-control--select dash-control--period">
@@ -28,8 +29,6 @@
             </select>
           </div>
         </div>
-      </div>
-      <div class="wrap dash-header__secondary">
         <div class="dash-header__toolbar">
           <section class="dash-search" id="panel-search">
             <div class="dash-combobox" id="company-combobox">
@@ -75,6 +74,10 @@
             <h2 class="dash-present__company" id="present-company"></h2>
             <p class="dash-present__site" id="present-site"></p>
           </div>
+          <button type="button" class="dash-btn dash-btn--primary" id="btn-export-pdf">
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            Экспорт PDF
+          </button>
         </div>
 
         <div class="dash-banner dash-banner--warn" id="banner-insufficient" hidden>
@@ -146,8 +149,13 @@
       </div>
     </div>
 
+    <div id="report-pdf-root" aria-hidden="true"></div>
+
     <script src="config.js"></script>
     <script src="data.js"></script>
+    <script src="assets/report-copy.js"></script>
+    <script src="assets/vendor/html2pdf.bundle.min.js"></script>
     <script src="assets/dashboard.js"></script>
+    <script src="assets/report-export.js"></script>
   </body>
 </html>

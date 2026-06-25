@@ -9,8 +9,8 @@
   var NO_CALL_LABEL = "Заявки без перезвона";
   var MESSENGER_PENETRATION_LABEL = "Проникновение мессенджеров";
   var AVG_TOUCHES_PER_RESPONDED_APP_LABEL = "Касаний на заявку с ответом";
-  var AVG_TOUCHES_PER_RESPONDED_BENCH = "на заявку с ответом";
   var AVG_TOUCHES_PER_SENT_APP_LABEL = "Касаний на отправленную заявку";
+  var AVG_RECONTACTS_LABEL = "Повторные касания";
   var FIRST_CALL_WEEKDAY_WEEKEND_LABEL = "Медиана скорости перезвона: Будни / Выходные";
   var FIRST_CALL_DAY_TYPE_MIN_N = 3;
   var CFG = window.APP_CONFIG || {};
@@ -79,6 +79,7 @@
     els.applicationsSummary = document.getElementById("applications-summary");
     els.applicationsEmpty = document.getElementById("applications-empty");
     els.applicationsTable = document.getElementById("applications-table");
+    els.btnExportPdf = document.getElementById("btn-export-pdf");
     els.tabButtons = document.querySelectorAll(".dash-tabs__btn");
     els.tabPanels = document.querySelectorAll(".dash-tabpanel");
   }
@@ -146,6 +147,37 @@
     }
 
     bindPhonesModalEvents();
+
+    if (els.btnExportPdf) {
+      els.btnExportPdf.addEventListener("click", handleExportPdf);
+    }
+  }
+
+  var exportPdfButtonHtml =
+    '<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> Экспорт PDF';
+
+  function handleExportPdf() {
+    if (!state.company || !window.ReportExport) return;
+    if (state.companyEventsLoading) {
+      window.alert("Подождите, загружаются данные по заявкам…");
+      return;
+    }
+    var btn = els.btnExportPdf;
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = "Формируем отчёт…";
+    }
+    window.ReportExport.run()
+      .catch(function (err) {
+        console.error(err);
+        window.alert("Не удалось сформировать PDF. Попробуйте ещё раз.");
+      })
+      .finally(function () {
+        if (btn) {
+          btn.disabled = false;
+          btn.innerHTML = exportPdfButtonHtml;
+        }
+      });
   }
 
   function bindPhonesModalEvents() {
@@ -733,6 +765,30 @@
     return Math.round((d.no_callback_share / 100) * d.applications_sent);
   }
 
+  function getApplicationsWithoutTouchesShare() {
+    var d = state.company;
+    if (d && d.insufficient_data) return null;
+    var sent = getApplicationsSentCount();
+    if (!sent) return null;
+    var withoutTouches = getApplicationsWithoutTouchesCount();
+    if (withoutTouches == null) return null;
+    var apps = state.companyEvents && state.companyEvents.applications;
+    if (apps && apps.length) {
+      return Math.round((withoutTouches / sent) * 100);
+    }
+    if (d && d.no_callback_share != null) return d.no_callback_share;
+    return null;
+  }
+
+  function formatApplicationsWithoutTouches() {
+    if (state.company && state.company.insufficient_data) return "—";
+    var count = getApplicationsWithoutTouchesCount();
+    var pct = getApplicationsWithoutTouchesShare();
+    if (count == null) return "—";
+    if (pct != null) return fmtInt(count) + " (" + fmtPct(pct) + ")";
+    return fmtInt(count);
+  }
+
   function getRespondedAppsCount() {
     var touchEvents = getRatingTouchEvents();
     if (touchEvents.length) {
@@ -769,6 +825,18 @@
     var sum = 0;
     devs.forEach(function (d) {
       sum += d.avg_touches_per_responded_app;
+    });
+    return Math.round((sum / devs.length) * 10) / 10;
+  }
+
+  function marketMeanRecontacts() {
+    var devs = (state.developers || []).filter(function (d) {
+      return !d.insufficient_data && d.avg_recontacts != null;
+    });
+    if (!devs.length) return null;
+    var sum = 0;
+    devs.forEach(function (d) {
+      sum += d.avg_recontacts;
     });
     return Math.round((sum / devs.length) * 10) / 10;
   }
@@ -819,11 +887,7 @@
     if (!slice) return "";
     var market = formatFirstCallMedianPair(slice);
     if (market === "—") return "";
-    var wdN = slice.weekday && slice.weekday.n != null ? slice.weekday.n : null;
-    var weN = slice.weekend && slice.weekend.n != null ? slice.weekend.n : null;
-    var nPart =
-      wdN != null && weN != null ? " · n=" + fmtInt(wdN) + " / " + fmtInt(weN) : "";
-    return "Рынок: " + market + nPart;
+    return "Рынок: " + market;
   }
 
   function compareFirstCallByDayType(companySlice, marketSlice) {
@@ -866,12 +930,15 @@
 
   function renderApplicationsSummary(data) {
     if (!els.applicationsSummary) return;
+    els.applicationsSummary.innerHTML = buildApplicationsSummaryHtml(data);
+  }
+
+  function buildApplicationsSummaryHtml(data) {
     var sent = (data.applications || []).length;
     var quorumMet = sent >= APPLICATIONS_QUORUM;
-    var withoutTouches = getApplicationsWithoutTouchesCount();
     var channelCounts = channelCountsForEvents((data.events || []).filter(isTouchInRating));
 
-    els.applicationsSummary.innerHTML =
+    return (
       '<div class="dash-applications-summary__grid">' +
       '<article class="dash-kpi">' +
       '<p class="dash-kpi__label">Заявок отправлено</p>' +
@@ -888,12 +955,13 @@
       '<article class="dash-kpi">' +
       '<p class="dash-kpi__label">Заявок без касаний (любой канал)</p>' +
       '<p class="dash-kpi__value">' +
-      esc(withoutTouches != null ? fmtInt(withoutTouches) : "—") +
+      esc(formatApplicationsWithoutTouches()) +
       "</p>" +
       "</article>" +
       '<article class="dash-kpi">' +
-      '<p class="dash-kpi__label">' + esc(AVG_TOUCHES_PER_SENT_APP_LABEL) + "</p>" +
-      '<p class="dash-kpi__value">' +
+      '<p class="dash-kpi__label">' +
+      esc(AVG_TOUCHES_PER_SENT_APP_LABEL) +
+      '</p><p class="dash-kpi__value">' +
       esc(formatAvgTouchesPerApp()) +
       "</p>" +
       "</article>" +
@@ -914,8 +982,8 @@
       "</strong></li>" +
       '<li><span>Telegram</span><strong class="mono">' +
       fmtInt(channelCounts.telegram) +
-      "</strong></li>" +
-      "</ul></article></div>";
+      "</strong></li></ul></article></div>"
+    );
   }
 
   function buildApplicationOrderMap(applications) {
@@ -932,11 +1000,10 @@
     return map;
   }
 
-  function renderApplicationsTable(data) {
-    if (!els.applicationsTable) return;
+  function buildApplicationsExportRows(data) {
     var eventsByApp = groupEventsByApp(data.events || []);
     var orderByAppId = buildApplicationOrderMap(data.applications);
-    var rowsData = (data.applications || []).map(function (app) {
+    return (data.applications || []).map(function (app) {
       var events = eventsByApp[app.application_id] || [];
       var identifiedEvents = events.filter(isTouchInRating);
       var channelCounts = channelCountsForEvents(identifiedEvents);
@@ -955,30 +1022,54 @@
         }),
       };
     });
+  }
 
-    rowsData = sortApplicationsRows(rowsData);
+  function buildApplicationsTableHtml(rowsData, options) {
+    options = options || {};
+    var expandedMap = options.expandedMap || {};
+    var sortable = options.sortable !== false;
 
-    var rows = rowsData
+    var header =
+      "<thead><tr>" +
+      (sortable ? '<th class="dash-table__expand-th" aria-hidden="true"></th>' : "") +
+      sortTh("order", "№ заявки") +
+      sortTh("submitted_at", "Отправлена") +
+      sortTh("day", "День") +
+      sortTh("slot", "Слот") +
+      sortTh("phone_number", "Номер заявки", "dash-table__phone-th") +
+      sortTh("total", "Касаний", "dash-table__total-th") +
+      sortTh("call", channelIconHtml("call"), "dash-table__channel-th") +
+      sortTh("sms", channelIconHtml("sms"), "dash-table__channel-th") +
+      sortTh("max", channelIconHtml("max"), "dash-table__channel-th") +
+      sortTh("whatsapp", channelIconHtml("whatsapp"), "dash-table__channel-th") +
+      sortTh("telegram", channelIconHtml("telegram"), "dash-table__channel-th") +
+      "</tr></thead>";
+
+    var body = rowsData
       .map(function (row) {
         var app = row.app;
         var events = row.events;
         var counts = row.channelCounts;
-        var expanded = !!state.expandedAppIds[app.application_id];
+        var expanded = !!expandedMap[app.application_id];
         var main =
           '<tr class="' +
           (events.length ? "" : "dash-table__row--empty") +
           '" data-app-id="' +
           esc(app.application_id) +
-          "\">" +
-          '<td class="dash-table__expand">' +
-          (events.length
-            ? '<button type="button" class="dash-btn" data-toggle-app="' + esc(app.application_id) + '" aria-expanded="' +
-              (expanded ? "true" : "false") +
-              '">' +
-              (expanded ? "−" : "+") +
-              "</button>"
+          '">' +
+          (sortable
+            ? '<td class="dash-table__expand">' +
+              (events.length
+                ? '<button type="button" class="dash-btn" data-toggle-app="' +
+                  esc(app.application_id) +
+                  '" aria-expanded="' +
+                  (expanded ? "true" : "false") +
+                  '">' +
+                  (expanded ? "−" : "+") +
+                  "</button>"
+                : "") +
+              "</td>"
             : "") +
-          "</td>" +
           '<td class="dash-application-number">' +
           '<span class="dash-application-order">' +
           esc(row.order) +
@@ -1003,9 +1094,7 @@
           (row.hasSpamEvents ? ' title="Есть спам-касания (см. раскрытие)"' : "") +
           ">" +
           fmtInt(row.totalIdentified) +
-          (row.hasSpamEvents
-            ? ' <span class="dash-table__spam-mark" aria-hidden="true">*</span>'
-            : "") +
+          (row.hasSpamEvents ? ' <span class="dash-table__spam-mark" aria-hidden="true">*</span>' : "") +
           "</td>" +
           channelCell(counts.call, "call") +
           channelCell(counts.sms, "sms") +
@@ -1046,27 +1135,28 @@
               .join("") +
             "</tbody></table></td></tr>";
         }
+
         return main + detail;
       })
       .join("");
 
-    els.applicationsTable.innerHTML =
-      '<div class="dash-table-wrap"><table class="dash-table"><thead><tr>' +
-      '<th class="dash-table__expand-th" aria-hidden="true"></th>' +
-      sortTh("order", "№ заявки") +
-      sortTh("submitted_at", "Отправлена") +
-      sortTh("day", "День") +
-      sortTh("slot", "Слот") +
-      sortTh("phone_number", "Номер заявки", "dash-table__phone-th") +
-      sortTh("total", "Касаний", "dash-table__total-th") +
-      sortTh("call", channelIconHtml("call"), "dash-table__channel-th") +
-      sortTh("sms", channelIconHtml("sms"), "dash-table__channel-th") +
-      sortTh("max", channelIconHtml("max"), "dash-table__channel-th") +
-      sortTh("whatsapp", channelIconHtml("whatsapp"), "dash-table__channel-th") +
-      sortTh("telegram", channelIconHtml("telegram"), "dash-table__channel-th") +
-      "</tr></thead><tbody>" +
-      rows +
-      "</tbody></table></div>";
+    return (
+      '<div class="dash-table-wrap"><table class="dash-table">' +
+      header +
+      "<tbody>" +
+      body +
+      "</tbody></table></div>"
+    );
+  }
+
+  function renderApplicationsTable(data) {
+    if (!els.applicationsTable) return;
+    var rowsData = sortApplicationsRows(buildApplicationsExportRows(data));
+
+    els.applicationsTable.innerHTML = buildApplicationsTableHtml(rowsData, {
+      expandedMap: state.expandedAppIds,
+      sortable: true,
+    });
 
     els.applicationsTable.querySelectorAll("[data-sort-app]").forEach(function (btn) {
       btn.addEventListener("click", function () {
@@ -1223,6 +1313,12 @@
     return '<span class="dash-badge dash-badge--no">неизвестно</span>';
   }
 
+  function statusLabel(status) {
+    if (status === "developer") return "застройщик";
+    if (status === "spam") return "спам";
+    return "неизвестно";
+  }
+
   function channelLabel(ch) {
     var map = { call: "Звонок", sms: "SMS", whatsapp: "WhatsApp", telegram: "Telegram", max: "Max" };
     return map[ch] || ch || "—";
@@ -1246,21 +1342,7 @@
     return map[String(s || "").toLowerCase()] || s || "—";
   }
 
-  function formatDateTime(iso) {
-    if (!iso) return "—";
-    var d = new Date(iso);
-    if (isNaN(d.getTime())) return String(iso);
-    return d.toLocaleString("ru-RU", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
-      timeZone: "Europe/Moscow",
-    });
-  }
-
-  function formatShortDateTime(iso) {
+  function formatRuDateTime(iso) {
     if (!iso) return "—";
     var d = new Date(iso);
     if (isNaN(d.getTime())) return String(iso);
@@ -1299,7 +1381,15 @@
     return day + " " + monthName + ", " + hour + ":" + minute;
   }
 
-  function renderExecutiveSummary(d, m) {
+  function formatDateTime(iso) {
+    return formatRuDateTime(iso);
+  }
+
+  function formatShortDateTime(iso) {
+    return formatRuDateTime(iso);
+  }
+
+  function buildExecutiveSummaryLines(d, m) {
     var lines = [];
     var speed = d.avg_call_response;
     var marketSpeed = m && m.avg_call_response ? m.avg_call_response.mean : null;
@@ -1319,9 +1409,7 @@
           ")."
       );
     } else if (speed != null) {
-      lines.push(
-        "Медиана первого звонка — " + fmtDuration(speed) + "."
-      );
+      lines.push("Медиана первого звонка — " + fmtDuration(speed) + ".");
     }
 
     var dayType = getFirstCallByDayType(d);
@@ -1357,25 +1445,37 @@
             ")."
         );
       } else {
-        lines.push(
-          "Покрытие перезвоном: " +
-            fmtPct(100 - d.no_call_share) +
-            " заявок со звонком."
-        );
+        lines.push("Покрытие перезвоном: " + fmtPct(100 - d.no_call_share) + " заявок со звонком.");
       }
     }
 
     if ((d.messenger_penetration_share || 0) === 0) {
+      lines.push("SMS или мессенджеров по отправленным заявкам не найдено.");
+    }
+
+    var marketRecontacts = marketMeanRecontacts();
+    if (d.avg_recontacts != null && marketRecontacts != null && d.avg_recontacts > marketRecontacts) {
       lines.push(
-        "SMS или мессенджеров по отправленным заявкам не найдено."
+        "Настойчивость: " +
+          fmtNum(d.avg_recontacts) +
+          " повторных касаний на отправленную заявку (рынок ~" +
+          fmtNum(marketRecontacts) +
+          ")."
       );
     }
 
+    return lines;
+  }
+
+  function renderExecutiveSummary(d, m) {
+    var lines = buildExecutiveSummaryLines(d, m);
     els.execSummary.innerHTML =
       "<h3>Краткий вывод</h3><ul>" +
-      lines.map(function (l) {
-        return "<li>" + esc(l) + "</li>";
-      }).join("") +
+      lines
+        .map(function (l) {
+          return "<li>" + esc(l) + "</li>";
+        })
+        .join("") +
       "</ul>";
   }
 
@@ -1408,28 +1508,30 @@
         compareNoCall(d.no_call_share, m)
       ),
       kpiCard(
-        MESSENGER_PENETRATION_LABEL,
-        d.messenger_penetration_share != null ? fmtPct(d.messenger_penetration_share) : "—",
-        m && m.messengers ? "Рынок: " + fmtPct(m.messengers.mean) : "",
-        compareMessengers(d.messenger_penetration_share, m)
-      ),
-      kpiCard(
         AVG_TOUCHES_PER_RESPONDED_APP_LABEL,
         formatAvgTouchesPerRespondedApp(),
-        (marketMeanTouchesPerResponded() != null
+        marketMeanTouchesPerResponded() != null
           ? "Рынок: " + fmtNum(marketMeanTouchesPerResponded())
-          : "") +
-          " · " +
-          AVG_TOUCHES_PER_RESPONDED_BENCH,
+          : "",
         compareTouchesPerResponded(getAvgTouchesPerRespondedApp())
+      ),
+      kpiCard(
+        AVG_RECONTACTS_LABEL,
+        d.avg_recontacts != null ? fmtNum(d.avg_recontacts) : "—",
+        marketMeanRecontacts() != null ? "Рынок: " + fmtNum(marketMeanRecontacts()) : "",
+        compareRecontacts(d.avg_recontacts)
       ),
       kpiCard(
         AVG_TOUCHES_PER_SENT_APP_LABEL,
         formatAvgTouchesPerApp(),
-        marketMeanTouchesPerSent() != null
-          ? "Рынок: " + fmtNum(marketMeanTouchesPerSent()) + " · все отправленные заявки"
-          : "все отправленные заявки",
+        marketMeanTouchesPerSent() != null ? "Рынок: " + fmtNum(marketMeanTouchesPerSent()) : "",
         compareTouchesPerSent(getAvgTouchesPerApp())
+      ),
+      kpiCard(
+        MESSENGER_PENETRATION_LABEL,
+        d.messenger_penetration_share != null ? fmtPct(d.messenger_penetration_share) : "—",
+        m && m.messengers ? "Рынок: " + fmtPct(m.messengers.mean) : "",
+        compareMessengers(d.messenger_penetration_share, m)
       ),
     ];
     els.kpiGrid.innerHTML = cards.join("");
@@ -1482,11 +1584,146 @@
     return deltaTag("neutral", "На уровне рынка");
   }
 
+  function compareRecontacts(company) {
+    var mean = marketMeanRecontacts();
+    if (company == null || mean == null) return "";
+    if (company > mean) return deltaTag("good", "Выше среднего рынка");
+    if (company < mean) return deltaTag("bad", "Ниже среднего рынка");
+    return deltaTag("neutral", "На уровне рынка");
+  }
+
   function compareMessengers(company, m) {
     if (company == null || !m || !m.messengers) return "";
     if (company < m.messengers.mean) return deltaTag("bad", "Ниже среднего рынка");
     if (company > m.messengers.mean) return deltaTag("good", "Выше среднего рынка");
     return deltaTag("neutral", "На уровне рынка");
+  }
+
+  function compareSpeedText(company, m) {
+    if (company == null || !m || !m.avg_call_response) return "";
+    var mean = m.avg_call_response.mean;
+    if (company < mean) return "Быстрее среднего рынка";
+    if (company > mean) return "Медленнее среднего рынка";
+    return "На уровне рынка";
+  }
+
+  function compareNoCallText(company, m) {
+    if (company == null || !m || !m.no_call_share) return "";
+    var mean = m.no_call_share.mean;
+    if (company > mean) return "Хуже среднего на " + Math.round(company - mean) + " п.п.";
+    if (company < mean) return "Лучше среднего на " + Math.round(mean - company) + " п.п.";
+    return "На уровне рынка";
+  }
+
+  function compareTouchesPerRespondedText(company) {
+    var mean = marketMeanTouchesPerResponded();
+    if (company == null || mean == null) return "";
+    if (company > mean) return "Выше среднего рынка";
+    if (company < mean) return "Ниже среднего рынка";
+    return "На уровне рынка";
+  }
+
+  function compareTouchesPerSentText(company) {
+    var mean = marketMeanTouchesPerSent();
+    if (company == null || mean == null) return "";
+    if (company > mean) return "Выше среднего рынка";
+    if (company < mean) return "Ниже среднего рынка";
+    return "На уровне рынка";
+  }
+
+  function compareRecontactsText(company) {
+    var mean = marketMeanRecontacts();
+    if (company == null || mean == null) return "";
+    if (company > mean) return "Выше среднего рынка";
+    if (company < mean) return "Ниже среднего рынка";
+    return "На уровне рынка";
+  }
+
+  function compareMessengersText(company, m) {
+    if (company == null || !m || !m.messengers) return "";
+    if (company < m.messengers.mean) return "Ниже среднего рынка";
+    if (company > m.messengers.mean) return "Выше среднего рынка";
+    return "На уровне рынка";
+  }
+
+  function compareFirstCallByDayTypeText(companySlice, marketSlice) {
+    if (!companySlice || !marketSlice) return "";
+    var wdN = companySlice.weekday && companySlice.weekday.n;
+    var weN = companySlice.weekend && companySlice.weekend.n;
+    if (wdN == null || weN == null || wdN < FIRST_CALL_DAY_TYPE_MIN_N || weN < FIRST_CALL_DAY_TYPE_MIN_N) {
+      return "";
+    }
+    var companyRatio = companySlice.weekend_vs_weekday_ratio;
+    var marketRatio = marketSlice.weekend_vs_weekday_ratio;
+    if (companyRatio == null || marketRatio == null) return "";
+    if (companySlice.weekend_slower) {
+      if (companyRatio > marketRatio * 1.1) {
+        return "На выходных ×" + fmtNum(companyRatio) + " — хуже рынка (×" + fmtNum(marketRatio) + ")";
+      }
+      if (companyRatio < marketRatio * 0.9) {
+        return "На выходных ×" + fmtNum(companyRatio) + " — лучше рынка (×" + fmtNum(marketRatio) + ")";
+      }
+      return "На выходных ×" + fmtNum(companyRatio) + " — на уровне рынка";
+    }
+    if (!companySlice.weekend_slower) return "На выходных не медленнее будней";
+    return "";
+  }
+
+  function buildKpiExportData(d, m) {
+    return [
+      {
+        label: SPEED_LABEL,
+        value: d.avg_call_response != null ? fmtDuration(d.avg_call_response) : "—",
+        bench:
+          m && m.avg_call_response
+            ? "Рынок: " + fmtDuration(m.avg_call_response.mean) + " · лучшее: " + fmtDuration(m.avg_call_response.best)
+            : "",
+        deltaText: compareSpeedText(d.avg_call_response, m),
+        explanationKey: "speed",
+      },
+      {
+        label: FIRST_CALL_WEEKDAY_WEEKEND_LABEL,
+        value: formatFirstCallMedianPair(getFirstCallByDayType(d)),
+        bench: formatFirstCallByDayTypeBench(m && m.first_call_by_day_type),
+        deltaText: compareFirstCallByDayTypeText(getFirstCallByDayType(d), m && m.first_call_by_day_type),
+        explanationKey: "dayType",
+      },
+      {
+        label: NO_CALL_LABEL,
+        value: d.no_call_share != null ? fmtPct(d.no_call_share) : "—",
+        bench: m && m.no_call_share ? "Рынок: " + fmtPct(m.no_call_share.mean) : "",
+        deltaText: compareNoCallText(d.no_call_share, m),
+        explanationKey: "noCall",
+      },
+      {
+        label: AVG_TOUCHES_PER_RESPONDED_APP_LABEL,
+        value: formatAvgTouchesPerRespondedApp(),
+        bench: marketMeanTouchesPerResponded() != null ? "Рынок: " + fmtNum(marketMeanTouchesPerResponded()) : "",
+        deltaText: compareTouchesPerRespondedText(getAvgTouchesPerRespondedApp()),
+        explanationKey: "touchesResponded",
+      },
+      {
+        label: AVG_RECONTACTS_LABEL,
+        value: d.avg_recontacts != null ? fmtNum(d.avg_recontacts) : "—",
+        bench: marketMeanRecontacts() != null ? "Рынок: " + fmtNum(marketMeanRecontacts()) : "",
+        deltaText: compareRecontactsText(d.avg_recontacts),
+        explanationKey: "recontacts",
+      },
+      {
+        label: AVG_TOUCHES_PER_SENT_APP_LABEL,
+        value: formatAvgTouchesPerApp(),
+        bench: marketMeanTouchesPerSent() != null ? "Рынок: " + fmtNum(marketMeanTouchesPerSent()) : "",
+        deltaText: compareTouchesPerSentText(getAvgTouchesPerApp()),
+        explanationKey: "touchesSent",
+      },
+      {
+        label: MESSENGER_PENETRATION_LABEL,
+        value: d.messenger_penetration_share != null ? fmtPct(d.messenger_penetration_share) : "—",
+        bench: m && m.messengers ? "Рынок: " + fmtPct(m.messengers.mean) : "",
+        deltaText: compareMessengersText(d.messenger_penetration_share, m),
+        explanationKey: "messengers",
+      },
+    ];
   }
 
   function deltaTag(kind, text) {
@@ -1613,20 +1850,26 @@
       });
     }
 
-    var avgTouchesPerResponded = getAvgTouchesPerRespondedApp();
-    if (
-      (avgTouchesPerResponded || 0) < 2 &&
-      d.no_call_share != null &&
-      d.no_call_share < 50
-    ) {
+    var marketRecontacts = marketMeanRecontacts();
+    var lowRecontacts =
+      d.avg_recontacts != null && marketRecontacts != null
+        ? d.avg_recontacts < marketRecontacts
+        : (getAvgTouchesPerRespondedApp() || 0) < 2;
+    if (lowRecontacts && d.no_call_share != null && d.no_call_share < 50) {
+      var recontactsBody =
+        d.avg_recontacts != null
+          ? fmtNum(d.avg_recontacts) +
+            " повторных касаний на отправленную заявку" +
+            (marketRecontacts != null ? " (рынок ~" + fmtNum(marketRecontacts) + ")" : "") +
+            ". При недозвоне клиент может не получить второй контакт."
+          : "В среднем " +
+            fmtNum(getAvgTouchesPerRespondedApp()) +
+            " касаний на заявку с ответом. При недозвоне клиент может не получить второй контакт.";
       cards.push({
         tag: "check",
         tagLabel: "Проверить",
         title: "Мало повторных касаний",
-        body:
-          "В среднем " +
-          fmtNum(avgTouchesPerResponded) +
-          " касаний на заявку с ответом. При недозвоне клиент может не получить второй контакт.",
+        body: recontactsBody,
         checks: [
           "Есть ли сценарий повторного звонка или SMS после недозвона",
           "Настроены ли задачи менеджерам в CRM",
@@ -1701,4 +1944,39 @@
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
     });
   }
+
+  window.DashboardExportContext = {
+    getState: function () {
+      return state;
+    },
+    companySlug: companySlug,
+    formatStudyRange: formatStudyRange,
+    formatPhone: formatPhone,
+    periodPhones: periodPhones,
+    buildExecutiveSummaryLines: buildExecutiveSummaryLines,
+    buildKpiExportData: buildKpiExportData,
+    buildApplicationsExportRows: buildApplicationsExportRows,
+    sortApplicationsRows: sortApplicationsRows,
+    isTouchInRating: isTouchInRating,
+    channelCountsForEvents: channelCountsForEvents,
+    statusLabel: statusLabel,
+    translateDay: translateDay,
+    translateSlot: translateSlot,
+    applicationPhone: applicationPhone,
+    eventPhone: eventPhone,
+    channelLabel: channelLabel,
+    formatShortDateTime: formatShortDateTime,
+    formatDateTime: formatDateTime,
+    formatApplicationsWithoutTouches: formatApplicationsWithoutTouches,
+    formatAvgTouchesPerApp: formatAvgTouchesPerApp,
+    fmtDuration: fmtDuration,
+    fmtPct: fmtPct,
+    fmtNum: fmtNum,
+    fmtInt: fmtInt,
+    esc: esc,
+    REPORT_COPY: window.REPORT_COPY,
+    APPLICATIONS_QUORUM: APPLICATIONS_QUORUM,
+    PLANNED_APPLICATIONS: PLANNED_APPLICATIONS,
+    AVG_TOUCHES_PER_SENT_APP_LABEL: AVG_TOUCHES_PER_SENT_APP_LABEL,
+  };
 })();

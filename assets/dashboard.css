@@ -84,35 +84,39 @@ code {
   padding: var(--space-3) 0 var(--space-2);
 }
 
-.dash-header__inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: var(--space-2);
-  margin-bottom: var(--space-2);
+.dash-header__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "title period"
+    "search search";
+  column-gap: var(--space-2);
+  row-gap: var(--space-2);
+  align-items: end;
 }
 
 .dash-header__title {
+  grid-area: title;
   font-family: var(--font-sans);
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 700;
   margin: 0;
   line-height: 1.1;
+  min-width: 0;
 }
 
 .dash-header__actions {
+  grid-area: period;
   display: flex;
   align-items: flex-end;
   flex-shrink: 0;
 }
 
-.dash-header__secondary {
-  padding: 0;
-}
-
 .dash-header__toolbar {
-  display: block;
+  grid-area: search;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
 }
 
 .dash-header__toolbar .dash-search {
@@ -220,9 +224,12 @@ code {
 }
 
 @media (max-width: 720px) {
-  .dash-header__inner {
-    flex-direction: column;
-    align-items: stretch;
+  .dash-header__layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "period"
+      "search";
   }
 
   .dash-header__actions {
@@ -604,6 +611,13 @@ code {
   align-items: flex-start;
   gap: var(--space-2);
   margin-bottom: 20px;
+}
+
+#btn-export-pdf {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
 }
 
 .dash-present__period {
